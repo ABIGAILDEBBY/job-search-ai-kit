@@ -2,7 +2,7 @@
 
 A Claude-powered toolkit for tech and data professionals navigating international job searches.
 
-Built alongside the **[The Job Search No One Taught You](https://www.linkedin.com/company/scholarsbackpack)** LinkedIn series by Abigail Woolley.
+Built alongside the **[The Job Search No One Taught You](https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7461467553941532672)** LinkedIn series by Abigail Woolley.
 
 ---
 
@@ -81,4 +81,4 @@ This repo grows with the article series. If you have suggestions for new command
 
 ---
 
-*Part of [The Job Search No One Taught You](https://www.linkedin.com/company/scholarsbackpack) — a 24-article series for tech and data professionals searching smarter.*
+*Part of [The Job Search No One Taught You](https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7461467553941532672) — a 24-article series for tech and data professionals searching smarter.*
