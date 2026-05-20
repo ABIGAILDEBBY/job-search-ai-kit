@@ -1,0 +1,54 @@
+# CodeRabbit configuration for job-search-ai-kit
+# https://docs.coderabbit.ai/configure-coderabbit
+
+language: "en-US"
+
+reviews:
+  # Automatically review every PR
+  auto_review:
+    enabled: true
+    drafts: false
+
+  # What to focus on for this repo (markdown-heavy, prompt/instruction files)
+  profile: "chill"
+
+  poem: false
+  collapse_walkthrough: false
+
+  path_instructions:
+    - path: ".claude/commands/**"
+      instructions: |
+        These are Claude Code slash command definitions written in markdown.
+        Review for:
+        - Clear, unambiguous instructions that Claude can follow
+        - Steps that are in a logical order
+        - Any instructions that could produce harmful or fabricated output
+        - Missing edge cases (e.g. what if the user has no resume loaded?)
+        - Consistency with other command files in the same folder
+
+    - path: "CLAUDE.md"
+      instructions: |
+        This is the main profile/context file read by Claude Code automatically.
+        Review for:
+        - Clear structure and section headings
+        - Any instructions that could cause Claude to behave unexpectedly
+        - Missing fields that would make the commands less effective
+
+    - path: "prompts/**"
+      instructions: |
+        These are plain-text prompts for non-Claude Code users (claude.ai).
+        Review for:
+        - Clarity and ease of copy-paste use
+        - Whether the prompt will produce useful output without extra context
+        - Consistency with the equivalent slash command in .claude/commands/
+
+    - path: "README.md"
+      instructions: |
+        Public-facing documentation for job seekers.
+        Review for:
+        - Broken or placeholder links
+        - Setup instructions that are clear for non-technical users
+        - Anything that could confuse a first-time user
+
+chat:
+  auto_reply: true
