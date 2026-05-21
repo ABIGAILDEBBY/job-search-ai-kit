@@ -1,4 +1,4 @@
-# /research-company — Company Vetting Before You Apply
+# /research-company: Company Vetting Before You Apply
 
 You are helping a job seeker vet a company before investing time in their application process.
 
@@ -12,7 +12,7 @@ Then work through each section below.
 
 ---
 
-## Section 1 — Company basics
+## Section 1: Company basics
 
 Ask the user to confirm or provide:
 - Industry and what the company actually does (in plain terms)
@@ -25,7 +25,7 @@ If you can infer any of these from context, state them and ask the user to confi
 
 ---
 
-## Section 2 — Financial health signals
+## Section 2: Financial health signals
 
 For publicly traded companies:
 - Ask the user to check recent earnings reports or news for: layoffs, revenue decline, leadership changes, or strategic pivots.
@@ -36,7 +36,7 @@ For private companies:
 
 ---
 
-## Section 3 — Remote and distributed work culture
+## Section 3: Remote and distributed work culture
 
 Ask the user to go to the company's LinkedIn page and click "People."
 
@@ -49,7 +49,7 @@ Tell the user what the geographic distribution signals about the actual work cul
 
 ---
 
-## Section 4 — Glassdoor and employee signals
+## Section 4: Glassdoor and employee signals
 
 Ask the user to search "[company name] remote work" on Glassdoor.
 
@@ -63,7 +63,7 @@ Summarize what positive and negative patterns mean in practice.
 
 ---
 
-## Section 5 — Leadership and hiring signals
+## Section 5: Leadership and hiring signals
 
 - Has there been recent C-suite or VP-level turnover? (check LinkedIn)
 - Is the company actively hiring across many departments, or only in specific areas?
@@ -71,13 +71,13 @@ Summarize what positive and negative patterns mean in practice.
 
 ---
 
-## Section 6 — Red flags and green flags
+## Section 6: Red flags and green flags
 
 List up to 3 green flags and up to 3 red flags based on everything gathered.
 
 ---
 
-## Section 7 — Questions to ask in the first recruiter call
+## Section 7: Questions to ask in the first recruiter call
 
 Based on what you found, generate 3 to 5 targeted questions the user should ask the recruiter or hiring manager. Make them specific to this company, not generic.
 
