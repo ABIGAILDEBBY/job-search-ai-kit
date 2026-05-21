@@ -1,4 +1,4 @@
-# /pre-submit — Final Checklist Before You Hit Apply
+# /pre-submit: Final Checklist Before You Hit Apply
 
 You are running the user through a final pre-submission audit to catch anything that could quietly disqualify their application before a human ever reads it.
 
@@ -11,7 +11,7 @@ Then work through every item below. Mark each as PASS, FLAG, or NEEDS FIX.
 ## Resume checks
 
 - [ ] Resume is tailored to this specific JD (not the generic base version)
-- [ ] File name is professional: FirstName-LastName-Role.pdf — not "resume_final_v3_ACTUAL.pdf"
+- [ ] File name is professional: FirstName-LastName-Role.pdf (not "resume_final_v3_ACTUAL.pdf")
 - [ ] File format is ATS-safe: .docx or clean .pdf (not an image, not a Canva export with graphics)
 - [ ] No tables, columns, text boxes, or headers/footers that break ATS parsing
 - [ ] Contact info is correct and current (email, LinkedIn, phone if relevant)
@@ -23,9 +23,9 @@ Then work through every item below. Mark each as PASS, FLAG, or NEEDS FIX.
 
 ## Application form checks
 
-- [ ] Every required field is filled — no blanks left that are not explicitly optional
-- [ ] Salary field: check whether to enter a number or select a range — do not leave blank
-- [ ] "How did you hear about us?" — a real answer, not "job board"
+- [ ] Every required field is filled (no blanks left that are not explicitly optional)
+- [ ] Salary field: check whether to enter a number or select a range, do not leave blank
+- [ ] "How did you hear about us?", a real answer, not "job board"
 - [ ] Cover letter field: confirm whether a cover letter is required, optional, or not expected
 - [ ] Any screening questions answered specifically, not with generic responses
 
@@ -33,10 +33,10 @@ Then work through every item below. Mark each as PASS, FLAG, or NEEDS FIX.
 
 ## Eligibility checks
 
-- [ ] Work authorization requirement confirmed — you meet it
-- [ ] Location requirement confirmed — you meet it or have a plan to address it
-- [ ] Required years of experience — you meet the minimum stated
-- [ ] Required certifications or degrees — you meet them or the role says "or equivalent experience"
+- [ ] Work authorization requirement confirmed, you meet it
+- [ ] Location requirement confirmed, you meet it or have a plan to address it
+- [ ] Required years of experience, you meet the minimum stated
+- [ ] Required certifications or degrees, you meet them or the role says "or equivalent experience"
 
 ---
 
@@ -56,4 +56,4 @@ Ask the user: "Is there anything about this application that felt uncertain or o
 
 If yes, address it before they submit.
 
-If everything passes, say: "You are clear to submit. Good luck — and follow up in 5-7 days."
+If everything passes, say: "You are clear to submit. Good luck, and follow up in 5-7 days."
