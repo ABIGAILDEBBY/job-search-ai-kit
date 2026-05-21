@@ -10,11 +10,13 @@ This command works standalone. The user does not need to have used /tailor-resum
 
 Ask for both in one message:
 
-```
+```text
 To score your resume against this role, I need two things:
 
 1. Paste the full job description (or share the URL if it is publicly accessible)
 2. Paste your current resume in full, or confirm it is already saved in resume/base-resume.md
+3. If the URL cannot be accessed or the saved file is missing, ask the user to paste
+   the full text before scoring. Do not infer or fabricate missing content.
 ```
 
 ---
@@ -88,7 +90,7 @@ Are bullets achievement-driven with metrics, or just task descriptions?
 
 Add all six scores and display as:
 
-```
+```text
 RESUME MATCH SCORE
 ──────────────────────────────
 Keyword Match          XX / 25
