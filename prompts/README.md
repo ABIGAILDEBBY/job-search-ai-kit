@@ -1,12 +1,12 @@
-# Plain Prompts — For claude.ai Users
+# Plain Prompts: For claude.ai Users
 
 No Claude Code? No problem. Copy any prompt below, paste it into claude.ai, and follow the instructions.
 
-Each prompt will ask you questions first, then help you. That is intentional — the more context you give, the better the output.
+Each prompt will ask you questions first, then help you. That is intentional, the more context you give, the better the output.
 
 ---
 
-## Prompt 1 — Vet a Job Posting
+## Prompt 1: Vet a Job Posting
 
 ```
 I want you to help me audit a job posting before I apply.
@@ -28,7 +28,7 @@ End with a clear recommendation: Apply, Apply with caution, Clarify before apply
 
 ---
 
-## Prompt 2 — Check If a Remote Job Is Actually Remote
+## Prompt 2: Check If a Remote Job Is Actually Remote
 
 ```
 I want you to help me verify whether a job listed as "remote" is genuinely remote or has hidden restrictions.
@@ -36,10 +36,10 @@ I want you to help me verify whether a job listed as "remote" is genuinely remot
 Ask me to paste the job description first.
 
 Then check:
-1. Location field — is there a geographic restriction alongside "remote"?
-2. Work authorization language — search for visa, sponsorship, authorized, eligible
-3. Time zone requirements — explicit or absent (absence is a signal)
-4. Travel requirements — any mention of in-person, travel, quarterly, on-site
+1. Location field, is there a geographic restriction alongside "remote"?
+2. Work authorization language, search for visa, sponsorship, authorized, eligible
+3. Time zone requirements, explicit or absent (absence is a signal)
+4. Travel requirements, any mention of in-person, travel, quarterly, on-site
 5. Equipment and setup requirements that could create barriers
 
 Give me a clear verdict: Genuinely remote / Restricted remote / Hybrid in disguise / Cannot confirm.
@@ -47,7 +47,7 @@ Give me a clear verdict: Genuinely remote / Restricted remote / Hybrid in disgui
 
 ---
 
-## Prompt 3 — Research a Company Before Applying
+## Prompt 3: Research a Company Before Applying
 
 ```
 Help me vet a company before I invest time in their application process.
@@ -61,7 +61,7 @@ Then guide me through:
 - Company basics: industry, size, stage, founded
 - Financial health signals (layoffs, funding, news)
 - Remote culture check using LinkedIn employee locations
-- Glassdoor signals — what to search and what to look for
+- Glassdoor signals, what to search and what to look for
 - Leadership and hiring signals
 - Red flags and green flags
 
@@ -70,7 +70,7 @@ Close with an overall risk assessment and 3-5 questions I should ask the recruit
 
 ---
 
-## Prompt 4 — Build or Tailor My Resume
+## Prompt 4: Build or Tailor My Resume
 
 ```text
 You are an expert resume writer. Help me build or tailor a resume for a specific role.
@@ -111,7 +111,7 @@ At the end, score how well my resume matches the job description out of 100 and 
 
 ---
 
-## Prompt 4b — Score My Resume Against a Job Description
+## Prompt 4b: Score My Resume Against a Job Description
 
 ```text
 You are an expert ATS analyst. Score how well my resume matches a specific job description and give me a clear action plan.
@@ -135,14 +135,14 @@ Show me the score breakdown clearly with totals out of 100 and a rating:
 - 80-89: Strong
 - 90-100: Exceptional
 
-Then give me a prioritised action plan — be specific about exactly which keywords are missing and where to add them, which bullet points need rewriting, and what to fix before I apply.
+Then give me a prioritised action plan, be specific about exactly which keywords are missing and where to add them, which bullet points need rewriting, and what to fix before I apply.
 
 Ask me at the end if I want you to rewrite specific sections based on the gaps you found.
 ```
 
 ---
 
-## Prompt 5 — Write a Cold Email to a Hiring Manager
+## Prompt 5: Write a Cold Email to a Hiring Manager
 
 ```
 Help me write a cold email or LinkedIn message to a hiring manager or recruiter.
@@ -165,7 +165,7 @@ Also check it for common mistakes: generic openers, self-focused language, vague
 
 ---
 
-## Prompt 6 — Pre-Submit Checklist
+## Prompt 6: Pre-Submit Checklist
 
 ```
 Run me through a final checklist before I submit a job application.
