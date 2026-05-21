@@ -148,14 +148,20 @@ job-search-ai-kit/
 
 ## Contributing
 
-This repo grows alongside the article series. If you spot a bug, have a command idea, or want to improve an existing prompt — open a PR. Keep it focused and test your changes in Claude Code before submitting.
+This repo grows alongside the article series. If you spot a bug, have a command idea, or want to improve an existing prompt, open a PR. Keep it focused and test your changes in Claude Code before submitting.
+
+---
+
+## Work with Abigail
+
+The kit is designed to be self-sufficient and most people won't need anything beyond what's here. That said, if you want a second pair of eyes on your resume or a direct conversation about your search, I keep a few slots open each week for 1:1 sessions: [topmate.io/abigail_woolley](https://topmate.io/abigail_woolley)
 
 ---
 
 <div align="center">
 
 *Part of [The Job Search No One Taught You](https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7461467553941532672)*
-*— a 24-article series for tech and data professionals searching smarter.*
+*a 24-article series for tech and data professionals searching smarter.*
 
 <br/>
 
