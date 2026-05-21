@@ -1,4 +1,4 @@
-# /vet-job — Full Job Posting Audit
+# /vet-job: Full Job Posting Audit
 
 You are helping a job seeker run a full audit on a job posting before they decide to apply.
 
@@ -12,7 +12,7 @@ Once you have the job description, run through every section below in order. Be 
 
 ---
 
-## Step 1 — Extract the basics
+## Step 1: Extract the basics
 
 Pull out and display:
 - Company name
@@ -21,11 +21,11 @@ Pull out and display:
 - Salary range (if listed)
 - Work authorization requirements (search for: authorized, visa, sponsorship, eligible, citizenship)
 - Application deadline (if listed)
-- Posted date (if available — flag if older than 60 days)
+- Posted date (if available, flag if older than 60 days)
 
 ---
 
-## Step 2 — Ghost job check
+## Step 2: Ghost job check
 
 Flag any of the following:
 - Posted more than 60 days ago with no updates
@@ -38,7 +38,7 @@ Tell the user clearly: "This posting shows [X] ghost job signals" or "No ghost j
 
 ---
 
-## Step 3 — Remote legitimacy check
+## Step 3: Remote legitimacy check
 
 If the role is listed as remote:
 - Is there a geographic restriction listed alongside "remote"? (country, state, region)
@@ -50,7 +50,7 @@ Tell the user: "This role appears to be [fully remote / restricted remote / remo
 
 ---
 
-## Step 4 — Work authorization check
+## Step 4: Work authorization check
 
 Search the full description for: authorized, visa, sponsorship, eligible, citizenship, work permit.
 
@@ -60,7 +60,7 @@ Tell the user clearly whether there is a potential authorization mismatch and wh
 
 ---
 
-## Step 5 — Skills alignment check
+## Step 5: Skills alignment check
 
 Compare the required and preferred skills in the posting against the user's profile in CLAUDE.md.
 
@@ -74,18 +74,18 @@ Flag any hard requirements the user does not meet. Flag also if the user is sign
 
 ---
 
-## Step 6 — Red flags and green flags
+## Step 6: Red flags and green flags
 
 List up to 3 green flags (genuine positives about this posting) and up to 3 red flags (concerns worth investigating).
 
 ---
 
-## Step 7 — Recommendation
+## Step 7: Recommendation
 
 End with one of:
-- **Apply** — strong match, no blockers
-- **Apply with caution** — worth pursuing but verify [specific thing] first
-- **Clarify before applying** — [specific question to ask before investing time]
-- **Skip** — [clear reason]
+- **Apply**: strong match, no blockers
+- **Apply with caution**: worth pursuing but verify [specific thing] first
+- **Clarify before applying**: [specific question to ask before investing time]
+- **Skip**: [clear reason]
 
 Then ask: "Would you like me to save this job to your tracker, start tailoring your resume, or research the company?"
