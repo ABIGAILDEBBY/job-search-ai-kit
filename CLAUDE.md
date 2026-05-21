@@ -1,4 +1,4 @@
-# Job Search AI Kit — Your Search Profile
+# Job Search AI Kit: Your Search Profile
 
 This file is read automatically by Claude Code every time you open this project.
 Fill in your profile once. Every command in this kit will use it.
@@ -14,7 +14,7 @@ CURRENT LOCATION (city, country):
 TARGET ROLE(S):
 TARGET INDUSTRIES:
 SALARY EXPECTATION (range + currency):
-WORK AUTHORIZATION: (e.g. "Open to work in US, UK, EU — need sponsorship" or "Ghana-based, seeking fully remote only")
+WORK AUTHORIZATION: (e.g. "Open to work in US, UK, EU, need sponsorship" or "Ghana-based, seeking fully remote only")
 PREFERRED TIME ZONES TO OVERLAP WITH:
 YEARS OF EXPERIENCE:
 KEY SKILLS (comma separated):
@@ -47,7 +47,7 @@ This project comes with a set of slash commands. Type `/` in Claude Code to see 
 
 ```
 job-search-ai-kit/
-├── CLAUDE.md                  ← this file — your search profile
+├── CLAUDE.md                  ← this file, your search profile
 ├── README.md                  ← setup guide for new users
 ├── .claude/commands/          ← slash commands (Claude Code only)
 ├── jobs/                      ← one file per job you are tracking

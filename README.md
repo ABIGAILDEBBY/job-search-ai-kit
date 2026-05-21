@@ -8,7 +8,7 @@ Built alongside the **[The Job Search No One Taught You](https://www.linkedin.co
 
 ## What This Is
 
-A structured workspace you clone once, fill in your profile, and use throughout your entire job search. It gives Claude the context it needs to help you vet jobs, tailor your resume, write cold emails, and run pre-apply checks — without you having to re-explain yourself every time.
+A structured workspace you clone once, fill in your profile, and use throughout your entire job search. It gives Claude the context it needs to help you vet jobs, tailor your resume, write cold emails, and run pre-apply checks, without you having to re-explain yourself every time.
 
 ---
 
@@ -27,7 +27,7 @@ A structured workspace you clone once, fill in your profile, and use throughout 
    claude .
    ```
 
-3. Fill in your profile in `CLAUDE.md` — name, target role, location, work authorization, skills.
+3. Fill in your profile in `CLAUDE.md`, name, target role, location, work authorization, skills.
 
 4. Paste your resume into `resume/base-resume.md`.
 
@@ -81,4 +81,4 @@ This repo grows with the article series. If you have suggestions for new command
 
 ---
 
-*Part of [The Job Search No One Taught You](https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7461467553941532672) — a 24-article series for tech and data professionals searching smarter.*
+*Part of [The Job Search No One Taught You](https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7461467553941532672), a 24-article series for tech and data professionals searching smarter.*
