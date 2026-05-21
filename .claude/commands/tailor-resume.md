@@ -98,7 +98,7 @@ Always split into two subsections:
 - Professional Skills: communication, stakeholder management, cross-functional collaboration, etc. (not "teamwork" or "hardworking")
 
 **For non-technical roles:**
-- Core Competencies: domain-specific expertise
+- Technical Skills: domain-specific expertise and tools relevant to the role
 - Professional Skills: same as above
 
 Do not use the word "soft skills" on the resume.
@@ -130,7 +130,7 @@ Template formatting rules:
 - Margins: 0.75 inches all sides
 - Line spacing: 1.15
 - Colour: black only — no coloured headers or sidebars (ATS-safe)
-- Save to: `resume/tailored/[Company]-[Role].docx`
+- Save to: `resume/tailored/FirstName-LastName-Role.docx`
 
 ---
 
