@@ -19,6 +19,11 @@ To score your resume against this role, I need two things:
    the full text before scoring. Do not infer or fabricate missing content.
 ```
 
+**Validation rules:**
+- If the user provides a URL for the JD, attempt to fetch it. If the fetch returns a non-2xx status code or empty content, stop immediately and say: "I was unable to retrieve the job description from that URL. Please paste the full job description text directly instead."
+- If the user asks you to read `resume/base-resume.md`, check that the file exists and contains content. If the file is missing or empty, stop and say: "I could not find a resume in resume/base-resume.md. Please paste your full resume text directly."
+- Refuse to proceed with scoring until you have valid, readable content for both the job description and the resume.
+
 ---
 
 ## Step 2: Extract JD requirements
