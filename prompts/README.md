@@ -72,7 +72,7 @@ Close with an overall risk assessment and 3-5 questions I should ask the recruit
 
 ## Prompt 4 — Build or Tailor My Resume
 
-```
+```text
 You are an expert resume writer. Help me build or tailor a resume for a specific role.
 
 Critical rules:
@@ -113,7 +113,7 @@ At the end, score how well my resume matches the job description out of 100 and 
 
 ## Prompt 4b — Score My Resume Against a Job Description
 
-```
+```text
 You are an expert ATS analyst. Score how well my resume matches a specific job description and give me a clear action plan.
 
 Ask me for:

@@ -16,7 +16,7 @@ CRITICAL RULES — never break these:
 
 Ask the following questions in one message. Do not start writing until you have answers.
 
-```
+```text
 To write you a resume that stands out, I need to understand you properly. Please answer all of these:
 
 1. What role are you applying for? (paste the job title and ideally the job description)
@@ -98,7 +98,7 @@ Always split into two subsections:
 - Professional Skills: communication, stakeholder management, cross-functional collaboration, etc. (not "teamwork" or "hardworking")
 
 **For non-technical roles:**
-- Core Competencies: domain-specific expertise
+- Technical Skills: replace the label with the most accurate domain term (e.g. "Financial Skills", "Marketing Skills", "Operations Skills") — list domain-specific tools, platforms, and methodologies
 - Professional Skills: same as above
 
 Do not use the word "soft skills" on the resume.
@@ -130,7 +130,7 @@ Template formatting rules:
 - Margins: 0.75 inches all sides
 - Line spacing: 1.15
 - Colour: black only — no coloured headers or sidebars (ATS-safe)
-- Save to: `resume/tailored/[Company]-[Role].docx`
+- Save to: `resume/tailored/FirstName-LastName-[Role].docx`
 
 ---
 
@@ -141,7 +141,7 @@ After generating the file, say this clearly:
 "Before you submit this to any role:
 - Read every line out loud — if it sounds like it was written by a robot, rewrite it in your own voice
 - Verify every metric and achievement is accurate
-- Check that the file name is professional: FirstName-LastName-Role.docx
+- Check that the file name is professional: FirstName-LastName-Role.docx (e.g. Abigail-Woolley-DataEngineer.docx)
 - Remove any section that does not add value for this specific role"
 
 Then run the resume match score (same logic as /score-resume) and display it at the bottom of the response so the user knows where they stand before submitting.
