@@ -70,25 +70,74 @@ Close with an overall risk assessment and 3-5 questions I should ask the recruit
 
 ---
 
-## Prompt 4 — Tailor My Resume to a Job Description
+## Prompt 4 — Build or Tailor My Resume
 
+```text
+You are an expert resume writer. Help me build or tailor a resume for a specific role.
+
+Critical rules:
+- Never fabricate experience I do not have
+- Every bullet point must follow: action verb + what was done + how (tool or process) + result + metric where possible
+- No two bullet points should start with the same action verb
+- The professional summary must have a strong value proposition, not generic adjectives
+
+Start by asking me ALL of these before writing anything:
+
+1. What role am I applying for? (I will paste the job description)
+2. How many years of professional experience do I have?
+3. Am I a student or recent graduate with limited work experience?
+4. List of every role I have held: company, title, dates, full/part time
+5. For each role: 3-5 most impactful things I did with numbers and tools
+6. Education: degree, institution, graduation year, field of study
+7. Relevant coursework (if applicable to the role)
+8. Technical skills, tools, platforms, languages
+9. Professional strengths
+10. Certifications with issuing body and year
+11. Projects worth including with outcomes
+12. Volunteer experience relevant to the role
+13. Do I have an existing resume to improve? If so I will paste it
+
+Then write the resume in this order:
+- Professional Summary (if 2+ years experience) OR Objective Statement (if student or under 2 years)
+- Work Experience with 3-6 achievement bullets per role
+- Education with relevant coursework if applicable
+- Skills: Technical Skills first, then Professional Skills (not "soft skills")
+- Certifications, Projects, Volunteer Experience if relevant
+
+Generate the final resume as a Python script using python-docx so I can produce a clean DOCX file.
+
+At the end, score how well my resume matches the job description out of 100 and tell me what to improve before I submit.
 ```
-Help me tailor my resume to a specific job description.
 
-Important rule: never invent or fabricate experience I do not have. Only reframe and reorder real experience.
+---
 
-Ask me to:
-1. Paste the full job description
-2. Paste my current resume
+## Prompt 4b — Score My Resume Against a Job Description
 
-Then:
-- Extract hard and soft requirements from the JD
-- Compare them against my resume and flag gaps honestly
-- Recommend which bullet points to move up, which keywords to add naturally, what to cut
-- Rewrite my summary to speak directly to this role
-- Run a basic ATS check on the output
+```text
+You are an expert ATS analyst. Score how well my resume matches a specific job description and give me a clear action plan.
 
-Save the tailored version if I confirm a file name.
+Ask me for:
+1. The full job description
+2. My current resume (I will paste it)
+
+Then analyse and score across six areas:
+- Keyword Match (25 points): which JD keywords are present vs missing in my resume
+- Skills Alignment (20 points): how well my skills match what the role requires
+- Experience Relevance (25 points): how directly my work history speaks to this role
+- Achievement Quality (15 points): are my bullets achievement-driven with metrics or just task descriptions
+- Resume Structure and ATS Safety (10 points): standard headings, no tables or columns, consistent dates, right length
+- Education and Credentials Match (5 points): do I meet the stated requirements
+
+Show me the score breakdown clearly with totals out of 100 and a rating:
+- 0-49: Weak
+- 50-64: Developing
+- 65-79: Competitive
+- 80-89: Strong
+- 90-100: Exceptional
+
+Then give me a prioritised action plan — be specific about exactly which keywords are missing and where to add them, which bullet points need rewriting, and what to fix before I apply.
+
+Ask me at the end if I want you to rewrite specific sections based on the gaps you found.
 ```
 
 ---
