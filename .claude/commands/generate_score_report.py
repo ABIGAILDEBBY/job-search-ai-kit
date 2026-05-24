@@ -64,6 +64,10 @@ PHOTO_PATH     = Path(__file__).parent / "reviewer_photo.png"
 # ─── Sample data structure ────────────────────────────────────────────────────
 SAMPLE_DATA = {
     "candidate_name": "Jane Doe",
+    "candidate_email": "jane.doe@email.com",
+    "candidate_phone": "+44 7700 123456",
+    "candidate_linkedin": "https://linkedin.com/in/janedoe",
+    "candidate_github": "https://github.com/janedoe",
     "role_title": "Senior Data Engineer",
     "company": "Acme Corp",
     "date": "",           # leave blank to auto-fill today
@@ -302,13 +306,47 @@ def build_report(data: dict, output_path: str):
     # Orange accent line
     story.append(HRFlowable(width="100%", thickness=4, color=ORANGE, spaceAfter=5*mm))
 
-    # ── CANDIDATE INFO ────────────────────────────────────────────────────────
-    cname = data.get("candidate_name", "")
+    # ── CANDIDATE INFO + CONTACT LINKS ───────────────────────────────────────
+    S_LINK = style("link",
+        fontName="Helvetica", fontSize=9,
+        textColor=TEAL, leading=13)
+
+    cname   = data.get("candidate_name", "")
+    c_email = data.get("candidate_email", "")
+    c_phone = data.get("candidate_phone", "")
+    c_li    = data.get("candidate_linkedin", "")
+    c_gh    = data.get("candidate_github", "")
+
     if cname:
-        story.append(
-            Paragraph(f"Candidate: <b>{cname}</b>", S_BODY)
+        story.append(Paragraph(f"Candidate: <b>{cname}</b>", S_BODY))
+        story.append(Spacer(1, 2*mm))
+
+    # Build contact link chips — only include fields that are present
+    contact_parts = []
+    if c_email:
+        contact_parts.append(
+            f'<link href="mailto:{c_email}">&#x2709; {c_email}</link>'
         )
-        story.append(Spacer(1, 4*mm))
+    if c_phone:
+        # Strip spaces/dashes for the tel: URI
+        tel_uri = re.sub(r"[\s\-()]", "", c_phone)
+        contact_parts.append(
+            f'<link href="tel:{tel_uri}">&#x260E; {c_phone}</link>'
+        )
+    if c_li:
+        contact_parts.append(
+            f'<link href="{c_li}">LinkedIn Profile</link>'
+        )
+    if c_gh:
+        contact_parts.append(
+            f'<link href="{c_gh}">GitHub Portfolio</link>'
+        )
+
+    if contact_parts:
+        story.append(
+            Paragraph("  ·  ".join(contact_parts), S_LINK)
+        )
+        story.append(Spacer(1, 5*mm))
 
     # ── SCORE TABLE ───────────────────────────────────────────────────────────
     story.append(Paragraph("SCORE BREAKDOWN", S_LABEL))
