@@ -188,16 +188,23 @@ This saves the PDF to `reports/score_data_temp_report.pdf`.
 
 **Step 6d — Rename to a clean filename**
 
-Rename the output to: `reports/<CandidateName>_<RoleTitle>_ScoreReport.pdf`
-(Use underscores, remove spaces and special characters.)
+Build the output filename using these rules:
+- Use the candidate name from the resume, falling back to `Candidate` if not found
+- Use the role title from the job description, falling back to `Role` if not found
+- Replace all spaces and non-alphanumeric characters (except underscores) with underscores
+- Final format: `reports/<CandidateName>_<RoleTitle>_ScoreReport.pdf`
 
-Then delete `reports/score_data_temp.json`.
+Example: Jane Doe applying for "Senior Data Engineer" → `reports/Jane_Doe_Senior_Data_Engineer_ScoreReport.pdf`
+
+Rename `reports/score_data_temp_report.pdf` to the final filename, then delete `reports/score_data_temp.json`.
 
 **Step 6e — Confirm to the user**
 
 Tell the user:
-"Your score report has been saved to: `reports/<filename>.pdf`
+"Your score report has been saved to: `reports/<CandidateName>_<RoleTitle>_ScoreReport.pdf`
 It is formatted and ready to share."
+
+(Use the actual resolved filename, not a placeholder.)
 
 ---
 
