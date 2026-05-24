@@ -72,7 +72,9 @@ Select a template style based on their role:
 Build sections in this exact order:
 
 ### 1. Header
-Name (large), email, phone, LinkedIn URL, GitHub or portfolio URL (if relevant), location (city and country only (no full address))
+Name (large), then on the line below: email (as a clickable mailto: link), phone (as a clickable tel: link), LinkedIn shown as "LinkedIn Profile" (hyperlinked), GitHub shown as "GitHub Portfolio" (hyperlinked, only if provided), location (city and country only, no full address).
+
+All contact fields that are present must be real hyperlinks — not plain text. See Phase 5 for the `add_hyperlink` helper to use when generating the DOCX.
 
 ### 2. Professional Summary or Objective
 See Phase 2 rules above.
@@ -120,6 +122,82 @@ Do not use the word "soft skills" on the resume.
 ## Phase 5: Generate the DOCX
 
 Write and execute Python code using python-docx to produce the resume as a formatted DOCX file.
+
+**Hyperlink helper — include this function in every DOCX generation script:**
+
+```python
+from docx.oxml.shared import OxmlElement, qn
+
+def add_hyperlink(paragraph, display_text, url, font_size=11, color="0563C1"):
+    """Add a clickable hyperlink run to an existing paragraph."""
+    part = paragraph.part
+    r_id = part.relate_to(
+        url,
+        "http://schemas.openxmlformats.org/officeDocument/2006/relationships/hyperlink",
+        is_external=True,
+    )
+    hyperlink = OxmlElement("w:hyperlink")
+    hyperlink.set(qn("r:id"), r_id)
+
+    run_el = OxmlElement("w:r")
+    rPr = OxmlElement("w:rPr")
+
+    rStyle = OxmlElement("w:rStyle")
+    rStyle.set(qn("w:val"), "Hyperlink")
+    rPr.append(rStyle)
+
+    col = OxmlElement("w:color")
+    col.set(qn("w:val"), color)
+    rPr.append(col)
+
+    ul = OxmlElement("w:u")
+    ul.set(qn("w:val"), "single")
+    rPr.append(ul)
+
+    sz = OxmlElement("w:sz")
+    sz.set(qn("w:val"), str(font_size * 2))  # half-points
+    rPr.append(sz)
+
+    run_el.append(rPr)
+    t = OxmlElement("w:t")
+    t.text = display_text
+    run_el.append(t)
+
+    hyperlink.append(run_el)
+    paragraph._p.append(hyperlink)
+```
+
+**Use it in the header like this:**
+
+```python
+import re
+
+header_para = doc.add_paragraph()
+header_para.alignment = WD_ALIGN_PARAGRAPH.LEFT
+
+# Email
+add_hyperlink(header_para, email, f"mailto:{email}")
+
+header_para.add_run("  ·  ")
+
+# Phone — strip spaces/dashes for the tel: URI
+tel_uri = re.sub(r"[\s\-()]", "", phone)
+add_hyperlink(header_para, phone, f"tel:{tel_uri}")
+
+# LinkedIn (only if provided)
+if linkedin_url:
+    header_para.add_run("  ·  ")
+    add_hyperlink(header_para, "LinkedIn Profile", linkedin_url)
+
+# GitHub (only if provided)
+if github_url:
+    header_para.add_run("  ·  ")
+    add_hyperlink(header_para, "GitHub Portfolio", github_url)
+
+# Location (plain text — no link)
+if location:
+    header_para.add_run(f"  ·  {location}")
+```
 
 Template formatting rules:
 - Font: Calibri throughout
