@@ -151,6 +151,10 @@ Create a file at `reports/score_data_temp.json` with this exact structure:
 ```json
 {
   "candidate_name": "<name from resume, or 'Candidate' if not found>",
+  "candidate_email": "<email address from resume, or '' if not found>",
+  "candidate_phone": "<phone number from resume, or '' if not found>",
+  "candidate_linkedin": "<full LinkedIn URL from resume, or '' if not found>",
+  "candidate_github": "<full GitHub URL from resume, or '' if not found>",
   "role_title": "<role title from job description>",
   "company": "<company name from job description>",
   "date": "",
