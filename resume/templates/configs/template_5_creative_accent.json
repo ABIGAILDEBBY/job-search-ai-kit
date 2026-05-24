@@ -1,5 +1,5 @@
 {
-  "_description": "Creative Accent — designed for UX/UI design, product design, marketing, and creative roles. Portfolio URL is the most prominent contact element. A teal accent rule beneath the name and section headings signals design sensibility while remaining ATS-safe single-column. Research: 78% of UX hiring managers prioritise portfolio link visibility (NNGroup). Restrained by design — signals that the candidate understands design restraint.",
+  "_description": "Creative Accent — designed for UX/UI design, product design, marketing, and creative roles. Portfolio URL is the most prominent contact element — placed first in the contact line — because hiring managers for creative roles routinely look for a portfolio link before reading the rest of the resume. A teal accent rule beneath the name and section headings signals design sensibility while remaining ATS-safe single-column. Restrained by design — signals that the candidate understands design restraint.",
   "_edit_instructions": "Change any value below and re-run /tailor-resume. To change the accent color, update color_accent and color_heading_border to the same hex value. All values are 6-digit hex without the # symbol.",
 
   "name": "Creative Accent",

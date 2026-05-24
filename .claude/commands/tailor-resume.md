@@ -74,7 +74,14 @@ After reading their answers, present all 8 templates and highlight which ones ar
 | Senior / director / VP / executive (10+ years) | 8 Executive Strategic, 4 Modern Tech, 3 Consulting Tight |
 | All other roles | 4 Modern Tech, 2 Harvard Classic, 6 Conservative Pro |
 
-### Show the user this message (fill in the 3 recommended names):
+### How to derive the 3 recommendations:
+
+1. From the Phase 1 answers, identify which row in the table above best matches the user's field and role type.
+2. Take the 3 template numbers listed for that row, in order.
+3. For each of the 3, write a one-line reason that references the user's specific role or field (e.g. "strong for data engineering roles — mirrors the format FAANG companies expect").
+4. Replace `[RECOMMENDED 1/2/3]` with the actual template names. Do not proceed to Phase 4 until the user explicitly confirms a choice.
+
+### Show the user this message (fill in from step above):
 
 ```text
 Based on your background, your top 3 recommended templates are:
@@ -414,7 +421,8 @@ def build_resume(doc, data, cfg):
     # ── Body paragraph factory ─────────────────────────────────────────────────
     def add_body(text="", bold=False, italic=False, size=None):
         p = doc.add_paragraph()
-        p.paragraph_format.space_after = Pt(cfg["space_after_body_pt"])
+        p.paragraph_format.space_after  = Pt(cfg["space_after_body_pt"])
+        p.paragraph_format.line_spacing = cfg.get("line_spacing", 1.15)
         if text:
             run = p.add_run(text)
             run.font.size   = Pt(size or cfg["font_size_body"])
@@ -426,8 +434,9 @@ def build_resume(doc, data, cfg):
     # ── Bullet factory ─────────────────────────────────────────────────────────
     def add_bullet(text):
         p = doc.add_paragraph(style="List Bullet")
-        p.paragraph_format.space_after = Pt(cfg["space_after_bullet_pt"])
-        p.paragraph_format.left_indent = Inches(0.25)
+        p.paragraph_format.space_after  = Pt(cfg["space_after_bullet_pt"])
+        p.paragraph_format.line_spacing = cfg.get("line_spacing", 1.15)
+        p.paragraph_format.left_indent  = Inches(0.25)
         run = p.add_run(text)
         run.font.size = Pt(cfg["font_size_bullet"])
         run.font.name = cfg["font_body"]
@@ -600,12 +609,21 @@ def generate_resume(data, template_number, output_path):
 
     build_resume(doc, data, cfg)
 
-    os.makedirs(os.path.dirname(output_path), exist_ok=True)
+    parent_dir = os.path.dirname(output_path)
+    if parent_dir:
+        os.makedirs(parent_dir, exist_ok=True)
     doc.save(output_path)
     print(f"Resume saved: {output_path}")
 
 
 # ── Populate this dict from the user's answers ─────────────────────────────────
+# Before filling in the data dict, derive these two flags:
+#   is_student         = True if the user answered "yes" to question 3 (student/recent graduate)
+#                        OR has fewer than 2 years of professional experience
+#   education_first    = is_student or template_number == 7
+#                        (students get education-first ordering regardless of which template they chose)
+#   projects_before_experience = True if is_student AND the user has strong projects but limited work history
+
 data = {
     "name":               "First Last",
     "email":              "email@example.com",
