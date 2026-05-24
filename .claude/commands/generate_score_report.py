@@ -5,6 +5,7 @@ Generates a professional, non-editable PDF resume match score report.
 
 Usage (called by Claude after running /score-resume):
     python3 .claude/commands/generate_score_report.py <data.json>
+    python3 .claude/commands/generate_score_report.py --sample
 
 The data.json must contain the fields shown in SAMPLE_DATA below.
 """
@@ -23,61 +24,62 @@ try:
     from reportlab.lib.units import mm, cm
     from reportlab.platypus import (
         SimpleDocTemplate, Paragraph, Spacer, Table, TableStyle,
-        HRFlowable, KeepTogether
+        HRFlowable, KeepTogether, Frame, PageTemplate
     )
     from reportlab.platypus.flowables import Flowable
     from reportlab.lib.enums import TA_LEFT, TA_CENTER, TA_RIGHT
-    from reportlab.graphics.shapes import Drawing, Circle, Rect, String
-    from reportlab.graphics import renderPDF
     from reportlab.pdfbase import pdfmetrics
-    from reportlab.pdfbase.ttfonts import TTFont
     from reportlab.lib.pdfencrypt import StandardEncryption
 except ImportError:
     print("reportlab is required. Run: pip3 install reportlab")
     sys.exit(1)
 
-# ─── Brand colours ────────────────────────────────────────────────────────────
-DARK       = colors.HexColor("#0E0E0E")
-ORANGE     = colors.HexColor("#E8611A")
-TEAL       = colors.HexColor("#16B2B2")
-GOLD       = colors.HexColor("#FFC857")
+# ─── Colour palette (professional: charcoal, teal, white, greys) ──────────────
+INK        = colors.HexColor("#1C1C1C")   # near-black for headlines
+TEAL       = colors.HexColor("#16B2B2")   # primary accent
+TEAL_DARK  = colors.HexColor("#0E8080")   # darker teal for hover/contrast
 WHITE      = colors.white
-OFF_WHITE  = colors.HexColor("#F7F7F7")
-GREY_TEXT  = colors.HexColor("#555555")
-GREY_LIGHT = colors.HexColor("#E8E8E8")
-GREY_MID   = colors.HexColor("#AAAAAA")
+PAGE_BG    = colors.white
+BAND_BG    = colors.HexColor("#F4F6F7")   # very light grey for alternating rows
+RULE       = colors.HexColor("#DCDCDC")   # horizontal rules
+GREY_LABEL = colors.HexColor("#888888")   # meta labels
+GREY_BODY  = colors.HexColor("#444444")   # body text
+GREY_NOTE  = colors.HexColor("#777777")   # dimension notes
+SCORE_FILL = TEAL                          # progress bar fill
+SCORE_TRACK= colors.HexColor("#E4E4E4")   # progress bar track
 
 RATING_COLOURS = {
-    "Weak":        colors.HexColor("#D9534F"),
-    "Developing":  colors.HexColor("#E8A020"),
-    "Competitive": colors.HexColor("#F0C040"),
-    "Strong":      colors.HexColor("#5CB85C"),
-    "Exceptional": colors.HexColor("#16B2B2"),
+    "Weak":        colors.HexColor("#C0392B"),
+    "Developing":  colors.HexColor("#D68910"),
+    "Competitive": colors.HexColor("#1A7FC1"),
+    "Strong":      TEAL,
+    "Exceptional": colors.HexColor("#1E8449"),
 }
 
-# ─── Reviewer details ─────────────────────────────────────────────────────────
-REVIEWER_NAME  = "Abigail Woolley"
-REVIEWER_TITLE = "Job Search Strategist & ATS Analyst"
-REVIEWER_BRAND = "The Job Search No One Taught You"
-PHOTO_PATH     = Path(__file__).parent / "reviewer_photo.png"
+# ─── Reviewer constants ────────────────────────────────────────────────────────
+REVIEWER_NAME   = "Abigail Woolley"
+REVIEWER_TITLE  = "Job Search Strategist & ATS Analyst"
+REVIEWER_BRAND  = "The Job Search No One Taught You"
+SERIES_URL      = "https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7461467553941532672"
+PHOTO_PATH      = Path(__file__).parent / "reviewer_photo.png"
 
-# ─── Sample data structure ────────────────────────────────────────────────────
+# ─── Sample data ──────────────────────────────────────────────────────────────
 SAMPLE_DATA = {
-    "candidate_name": "Jane Doe",
-    "candidate_email": "jane.doe@email.com",
-    "candidate_phone": "+44 7700 123456",
+    "candidate_name":     "Jane Doe",
+    "candidate_email":    "jane.doe@email.com",
+    "candidate_phone":    "+44 7700 123456",
     "candidate_linkedin": "https://linkedin.com/in/janedoe",
-    "candidate_github": "https://github.com/janedoe",
-    "role_title": "Senior Data Engineer",
-    "company": "Acme Corp",
-    "date": "",           # leave blank to auto-fill today
+    "candidate_github":   "https://github.com/janedoe",
+    "role_title":         "Senior Data Engineer",
+    "company":            "Acme Corp",
+    "date":               "",
     "scores": {
-        "keyword_match":     {"score": 18, "max": 25},
-        "skills_alignment":  {"score": 15, "max": 20},
-        "experience":        {"score": 20, "max": 25},
-        "achievements":      {"score": 10, "max": 15},
-        "structure_ats":     {"score":  8, "max": 10},
-        "education":         {"score":  4, "max":  5},
+        "keyword_match":    {"score": 18, "max": 25},
+        "skills_alignment": {"score": 15, "max": 20},
+        "experience":       {"score": 20, "max": 25},
+        "achievements":     {"score": 10, "max": 15},
+        "structure_ats":    {"score":  8, "max": 10},
+        "education":        {"score":  4, "max":  5},
     },
     "total": 75,
     "rating": "Competitive",
@@ -90,9 +92,9 @@ SAMPLE_DATA = {
         "education":        "Degree requirement met. No relevant certifications listed.",
     },
     "priority_1": [
-        "Add missing ATS keywords: dbt, Airflow, Spark — in Skills section and relevant bullets",
-        "Add GCP experience or note cloud platform transferability explicitly",
-        "Rewrite 3 task-description bullets with quantified outcomes",
+        "Add missing ATS keywords: dbt, Airflow, Spark — include in Skills section and relevant bullets",
+        "Add GCP experience or explicitly note cloud platform transferability",
+        "Rewrite 3 task-description bullets as quantified achievements",
     ],
     "priority_2": [
         "Standardise date format across all roles (Month YYYY)",
@@ -104,90 +106,129 @@ SAMPLE_DATA = {
     ],
 }
 
-
 # ─── Custom flowables ─────────────────────────────────────────────────────────
 
-class ScoreBar(Flowable):
-    """Horizontal progress bar showing score / max."""
+class TealBar(Flowable):
+    """A full-width teal rule used as a top-of-page accent stripe."""
 
-    def __init__(self, score, max_score, width=120, height=10):
-        """Initialise the bar with score, maximum value, and pixel dimensions."""
+    def __init__(self, width, height=3):
+        """Initialise with page width and bar height in points."""
         Flowable.__init__(self)
-        self.score = score
-        self.max_score = max_score
         self.bar_w = width
         self.bar_h = height
         self.width = width
-        self.height = height + 2
+        self.height = height
+
+    def draw(self):
+        """Render the teal stripe onto the canvas."""
+        self.canv.setFillColor(TEAL)
+        self.canv.rect(0, 0, self.bar_w, self.bar_h, fill=1, stroke=0)
+
+
+class ScoreBar(Flowable):
+    """Horizontal progress bar showing score / max in teal."""
+
+    def __init__(self, score, max_score, width=100*mm, height=6):
+        """Initialise the bar with score, maximum value, and pixel dimensions."""
+        Flowable.__init__(self)
+        self.score     = score
+        self.max_score = max_score
+        self.bar_w     = width
+        self.bar_h     = height
+        self.width     = width
+        self.height    = height + 2
 
     def draw(self):
         """Render the track and filled portion onto the canvas."""
-        # Always draw the empty track
-        self.canv.setFillColor(GREY_LIGHT)
-        self.canv.roundRect(0, 1, self.bar_w, self.bar_h, 3, fill=1, stroke=0)
-        # Guard against divide-by-zero; skip fill if max_score is invalid
+        # Track
+        self.canv.setFillColor(SCORE_TRACK)
+        self.canv.roundRect(0, 1, self.bar_w, self.bar_h, 2, fill=1, stroke=0)
+        # Guard against divide-by-zero
         if self.max_score <= 0:
             return
-        pct = self.score / self.max_score
+        pct    = self.score / self.max_score
         filled = pct * self.bar_w
-        fill_color = (
-            ORANGE if pct >= 0.8
-            else colors.HexColor("#E8A020") if pct >= 0.6
-            else colors.HexColor("#D9534F")
-        )
-        self.canv.setFillColor(fill_color)
-        self.canv.roundRect(0, 1, filled, self.bar_h, 3, fill=1, stroke=0)
+        self.canv.setFillColor(SCORE_FILL)
+        self.canv.roundRect(0, 1, filled, self.bar_h, 2, fill=1, stroke=0)
 
 
-class HeaderBand(Flowable):
-    """Full-width dark header with orange accent line at the bottom."""
+class ReviewerStamp(Flowable):
+    """Small inline reviewer block: circular photo + name + title."""
 
-    def __init__(self, page_width, height=62*mm):
-        """Initialise the band with the full page width and desired height."""
+    def __init__(self, photo_path, diameter=14*mm, text_lines=None):
+        """Initialise with photo path, circle size, and text lines to render."""
         Flowable.__init__(self)
-        self.page_width = page_width
-        self.height = height
-        self.width = page_width
+        self.photo_path = str(photo_path)
+        self.d          = diameter
+        self.text_lines = text_lines or []
+        self.width      = 200*mm
+        self.height     = diameter + 2*mm
 
     def draw(self):
-        """Render the dark background rectangle and orange bottom accent."""
-        # Dark background
-        self.canv.setFillColor(DARK)
-        self.canv.rect(0, 0, self.page_width, self.height, fill=1, stroke=0)
-        # Orange accent bar at bottom
-        self.canv.setFillColor(ORANGE)
-        self.canv.rect(0, 0, self.page_width, 4, fill=1, stroke=0)
-
-
-class CirclePhoto(Flowable):
-    """Draws the reviewer photo clipped to a circle with an orange border."""
-
-    def __init__(self, path, diameter=38*mm):
-        """Initialise with the image file path and circle diameter in points."""
-        Flowable.__init__(self)
-        self.path = str(path)
-        self.d = diameter
-        self.width = diameter
-        self.height = diameter
-
-    def draw(self):
-        """Render the orange border ring and clip the image to a circle."""
-        if not os.path.exists(self.path):
-            return
+        """Render the small circular photo and reviewer text side by side."""
         r = self.d / 2
-        # Orange ring
-        self.canv.setFillColor(ORANGE)
-        self.canv.circle(r, r, r + 1.5*mm, fill=1, stroke=0)
-        # Clip circle and draw image
-        self.canv.saveState()
-        p = self.canv.beginPath()
-        p.circle(r, r, r)
-        self.canv.clipPath(p, stroke=0)
-        self.canv.drawImage(
-            self.path, 0, 0, width=self.d, height=self.d,
-            preserveAspectRatio=True, anchor='c', mask='auto'
-        )
-        self.canv.restoreState()
+        if os.path.exists(self.photo_path):
+            # Thin teal ring
+            self.canv.setFillColor(TEAL)
+            self.canv.circle(r, r, r + 1*mm, fill=1, stroke=0)
+            # Clip to circle and draw image
+            self.canv.saveState()
+            p = self.canv.beginPath()
+            p.circle(r, r, r)
+            self.canv.clipPath(p, stroke=0)
+            self.canv.drawImage(
+                self.photo_path, 0, 0,
+                width=self.d, height=self.d,
+                preserveAspectRatio=True, anchor="c", mask="auto",
+            )
+            self.canv.restoreState()
+        # Text to the right of the photo
+        tx = self.d + 4*mm
+        ty = self.d - 3*mm
+        for i, (text, font, size, col) in enumerate(self.text_lines):
+            self.canv.setFont(font, size)
+            self.canv.setFillColor(col)
+            self.canv.drawString(tx, ty - i * (size + 2), text)
+
+
+# ─── Helpers ──────────────────────────────────────────────────────────────────
+
+def _style(name, **kw):
+    """Create and return a named ParagraphStyle with the given attributes."""
+    return ParagraphStyle(name, **kw)
+
+
+def _priority_block(label, subtitle, items, accent_color, label_color, W):
+    """Build and return a KeepTogether priority block with teal/grey accent bar."""
+    block = []
+
+    hdr_data = [[
+        Paragraph(label,    _style("ph", fontName="Helvetica-Bold",
+                                   fontSize=8.5, textColor=WHITE, leading=12)),
+        Paragraph(subtitle, _style("ps", fontName="Helvetica",
+                                   fontSize=8, textColor=colors.HexColor("#CCCCCC"),
+                                   leading=12, alignment=TA_RIGHT)),
+    ]]
+    hdr = Table(hdr_data, colWidths=[W * 0.45, W * 0.55])
+    hdr.setStyle(TableStyle([
+        ("BACKGROUND",    (0, 0), (-1, -1), accent_color),
+        ("LEFTPADDING",   (0, 0), (0, 0),   4*mm),
+        ("RIGHTPADDING",  (1, 0), (1, 0),   4*mm),
+        ("TOPPADDING",    (0, 0), (-1, -1), 2.5*mm),
+        ("BOTTOMPADDING", (0, 0), (-1, -1), 2.5*mm),
+        ("VALIGN",        (0, 0), (-1, -1), "MIDDLE"),
+    ]))
+    block.append(hdr)
+
+    for item in items:
+        block.append(Paragraph(
+            f"<bullet>&bull;</bullet> {item}",
+            _style("bi", fontName="Helvetica", fontSize=9, textColor=GREY_BODY,
+                   leading=14, leftIndent=10*mm, firstLineIndent=-6*mm,
+                   spaceBefore=2*mm),
+        ))
+    block.append(Spacer(1, 5*mm))
+    return KeepTogether(block)
 
 
 # ─── PDF builder ──────────────────────────────────────────────────────────────
@@ -206,166 +247,100 @@ def build_report(data: dict, output_path: str):
     doc = SimpleDocTemplate(
         output_path,
         pagesize=A4,
-        leftMargin=18*mm,
-        rightMargin=18*mm,
-        topMargin=12*mm,
-        bottomMargin=16*mm,
+        leftMargin=20*mm,
+        rightMargin=20*mm,
+        topMargin=10*mm,
+        bottomMargin=18*mm,
         title="Resume Match Score Report",
         author=REVIEWER_NAME,
         subject=f"Resume score for {data.get('candidate_name', 'Candidate')}",
         creator=f"{REVIEWER_NAME} via Job Search AI Kit",
         producer="Job Search AI Kit",
-        # Empty user password (open freely) + owner password locks editing.
-        # canPrint=1 allows printing; canModify=0 disables editing in viewers.
-        encrypt=StandardEncryption("", canPrint=1, canModify=0,
-                                   canCopy=0, canAnnotate=0),
+        encrypt=StandardEncryption(
+            "", canPrint=1, canModify=0, canCopy=0, canAnnotate=0
+        ),
     )
 
-    styles = getSampleStyleSheet()
-    W = A4[0] - 36*mm  # usable width
-
-    def style(name, **kw):
-        """Create and return a named ParagraphStyle with the given attributes."""
-        s = ParagraphStyle(name, **kw)
-        return s
-
-    S_LABEL = style("label",
-        fontName="Helvetica-Bold", fontSize=7,
-        textColor=ORANGE, spaceAfter=1*mm, leading=10,
-        letterSpacing=1.5)
-    S_H1 = style("h1",
-        fontName="Helvetica-Bold", fontSize=20,
-        textColor=WHITE, leading=24)
-    S_SUBHEAD = style("subhead",
-        fontName="Helvetica", fontSize=10,
-        textColor=GREY_MID, leading=14)
-    S_SECTION = style("section",
-        fontName="Helvetica-Bold", fontSize=11,
-        textColor=DARK, spaceBefore=5*mm, spaceAfter=2*mm)
-    S_BODY = style("body",
-        fontName="Helvetica", fontSize=9.5,
-        textColor=GREY_TEXT, leading=15)
-    S_BULLET = style("bullet",
-        fontName="Helvetica", fontSize=9.5,
-        textColor=GREY_TEXT, leading=15,
-        leftIndent=10, firstLineIndent=-10,
-        spaceBefore=1.5*mm)
-    S_NOTE = style("note",
-        fontName="Helvetica-Oblique", fontSize=8.5,
-        textColor=GREY_MID, leading=13)
-    S_SCORE_LABEL = style("score_label",
-        fontName="Helvetica-Bold", fontSize=9,
-        textColor=DARK, leading=12)
-    S_SCORE_NUM = style("score_num",
-        fontName="Helvetica-Bold", fontSize=9,
-        textColor=ORANGE, leading=12, alignment=TA_RIGHT)
-    S_RATING = style("rating",
-        fontName="Helvetica-Bold", fontSize=26,
-        textColor=DARK, leading=30)
-    S_TOTAL = style("total",
-        fontName="Helvetica-Bold", fontSize=14,
-        textColor=DARK, leading=18)
-    S_FOOTER = style("footer",
-        fontName="Helvetica", fontSize=7.5,
-        textColor=GREY_MID, alignment=TA_CENTER, leading=11)
-    S_PRIORITY = style("priority",
-        fontName="Helvetica-Bold", fontSize=10,
-        textColor=WHITE, leading=13)
-
+    W = A4[0] - 40*mm   # usable width
     story = []
 
-    # ── HEADER ────────────────────────────────────────────────────────────────
-    # Two-column header: left = text, right = photo
-    photo_d = 36*mm
-    text_w  = W - photo_d - 6*mm
+    # ── TOP TEAL ACCENT BAR ───────────────────────────────────────────────────
+    story.append(TealBar(W, height=4))
+    story.append(Spacer(1, 5*mm))
 
-    left_cells = [
-        Paragraph("RESUME MATCH SCORE REPORT", S_LABEL),
-        Spacer(1, 2*mm),
-        Paragraph(
-            data.get("role_title", "Role"),
-            style("h1big", fontName="Helvetica-Bold", fontSize=18,
-                  textColor=WHITE, leading=22)
-        ),
-        Spacer(1, 1.5*mm),
-        Paragraph(
-            f"{data.get('company', '')}  &nbsp;·&nbsp;  Reviewed {date_str}",
-            S_SUBHEAD
-        ),
-        Spacer(1, 2*mm),
-        Paragraph(
-            f"<b><font color='#FFFFFF'>{REVIEWER_NAME}</font></b>"
-            f"  <font color='#AAAAAA'>·  {REVIEWER_TITLE}</font>",
-            style("rev", fontName="Helvetica", fontSize=8.5,
-                  textColor=GREY_MID, leading=12)
-        ),
+    # ── DOCUMENT META LABEL ───────────────────────────────────────────────────
+    story.append(Paragraph(
+        "RESUME MATCH SCORE REPORT",
+        _style("meta", fontName="Helvetica", fontSize=7.5,
+               textColor=TEAL, leading=10, letterSpacing=1.8),
+    ))
+    story.append(Spacer(1, 3*mm))
+
+    # ── ROLE + COMPANY HEADLINE ───────────────────────────────────────────────
+    story.append(Paragraph(
+        data.get("role_title", "Role"),
+        _style("h1", fontName="Helvetica-Bold", fontSize=22,
+               textColor=INK, leading=26),
+    ))
+    story.append(Spacer(1, 1*mm))
+    story.append(Paragraph(
+        f"{data.get('company', '')}  &nbsp;&nbsp;·&nbsp;&nbsp;  {date_str}",
+        _style("co", fontName="Helvetica", fontSize=10,
+               textColor=GREY_LABEL, leading=14),
+    ))
+    story.append(Spacer(1, 4*mm))
+
+    # ── REVIEWER STAMP (small, right-side) ───────────────────────────────────
+    reviewer_lines = [
+        (f"Reviewed by  {REVIEWER_NAME}", "Helvetica-Bold", 8.5, INK),
+        (REVIEWER_TITLE,                  "Helvetica",      7.5, GREY_LABEL),
     ]
+    reviewer_stamp = ReviewerStamp(PHOTO_PATH, diameter=13*mm,
+                                   text_lines=reviewer_lines)
+    story.append(reviewer_stamp)
+    story.append(Spacer(1, 3*mm))
 
-    header_table = Table(
-        [[left_cells, CirclePhoto(PHOTO_PATH, photo_d)]],
-        colWidths=[text_w, photo_d],
-        rowHeights=[58*mm],
-    )
-    header_table.setStyle(TableStyle([
-        ("BACKGROUND", (0, 0), (-1, -1), DARK),
-        ("VALIGN",     (0, 0), (0, 0),   "MIDDLE"),
-        ("VALIGN",     (1, 0), (1, 0),   "MIDDLE"),
-        ("ALIGN",      (1, 0), (1, 0),   "CENTER"),
-        ("LEFTPADDING",  (0, 0), (0, 0), 0),
-        ("RIGHTPADDING", (0, 0), (0, 0), 4*mm),
-        ("TOPPADDING",   (0, 0), (-1, -1), 10*mm),
-        ("BOTTOMPADDING",(0, 0), (-1, -1), 8*mm),
-    ]))
-    story.append(header_table)
-
-    # Orange accent line
-    story.append(HRFlowable(width="100%", thickness=4, color=ORANGE, spaceAfter=5*mm))
+    # ── DIVIDER ───────────────────────────────────────────────────────────────
+    story.append(HRFlowable(width="100%", thickness=0.75, color=RULE,
+                             spaceAfter=5*mm))
 
     # ── CANDIDATE INFO + CONTACT LINKS ───────────────────────────────────────
-    S_LINK = style("link",
-        fontName="Helvetica", fontSize=9,
-        textColor=TEAL, leading=13)
-
     cname   = data.get("candidate_name", "")
     c_email = data.get("candidate_email", "")
     c_phone = data.get("candidate_phone", "")
     c_li    = data.get("candidate_linkedin", "")
     c_gh    = data.get("candidate_github", "")
 
-    if cname:
-        story.append(Paragraph(f"Candidate: <b>{cname}</b>", S_BODY))
-        story.append(Spacer(1, 2*mm))
+    S_LINK = _style("lnk", fontName="Helvetica", fontSize=8.5,
+                    textColor=TEAL, leading=12)
+    S_CAND = _style("cnd", fontName="Helvetica-Bold", fontSize=10,
+                    textColor=INK, leading=14)
 
-    # Build contact link chips — only include fields that are present
+    if cname:
+        story.append(Paragraph(cname, S_CAND))
+        story.append(Spacer(1, 1.5*mm))
+
     contact_parts = []
     if c_email:
-        contact_parts.append(
-            f'<link href="mailto:{c_email}">&#x2709; {c_email}</link>'
-        )
+        contact_parts.append(f'<link href="mailto:{c_email}">{c_email}</link>')
     if c_phone:
-        # Strip spaces/dashes for the tel: URI
         tel_uri = re.sub(r"[\s\-()]", "", c_phone)
-        contact_parts.append(
-            f'<link href="tel:{tel_uri}">&#x260E; {c_phone}</link>'
-        )
+        contact_parts.append(f'<link href="tel:{tel_uri}">{c_phone}</link>')
     if c_li:
-        contact_parts.append(
-            f'<link href="{c_li}">LinkedIn Profile</link>'
-        )
+        contact_parts.append(f'<link href="{c_li}">LinkedIn Profile</link>')
     if c_gh:
-        contact_parts.append(
-            f'<link href="{c_gh}">GitHub Portfolio</link>'
-        )
-
+        contact_parts.append(f'<link href="{c_gh}">GitHub Portfolio</link>')
     if contact_parts:
-        story.append(
-            Paragraph("  ·  ".join(contact_parts), S_LINK)
-        )
-        story.append(Spacer(1, 5*mm))
+        story.append(Paragraph("  ·  ".join(contact_parts), S_LINK))
+        story.append(Spacer(1, 6*mm))
 
-    # ── SCORE TABLE ───────────────────────────────────────────────────────────
-    story.append(Paragraph("SCORE BREAKDOWN", S_LABEL))
-    story.append(Spacer(1, 1.5*mm))
+    # ── SCORE BREAKDOWN ───────────────────────────────────────────────────────
+    story.append(Paragraph(
+        "SCORE BREAKDOWN",
+        _style("sec", fontName="Helvetica-Bold", fontSize=7.5,
+               textColor=TEAL, leading=10, letterSpacing=1.5,
+               spaceBefore=2*mm, spaceAfter=2*mm),
+    ))
 
     dimension_labels = {
         "keyword_match":    "Keyword Match",
@@ -376,144 +351,154 @@ def build_report(data: dict, output_path: str):
         "education":        "Education & Credentials",
     }
 
-    bar_w = 90*mm
+    bar_col_w = W * 0.50
     rows = []
     for key, label in dimension_labels.items():
         entry = data["scores"].get(key, {"score": 0, "max": 0})
         sc, mx = entry["score"], entry["max"]
         rows.append([
-            Paragraph(label, S_SCORE_LABEL),
-            ScoreBar(sc, mx, width=bar_w, height=8),
-            Paragraph(f"{sc} / {mx}", S_SCORE_NUM),
+            Paragraph(label, _style("sl", fontName="Helvetica", fontSize=9,
+                                    textColor=GREY_BODY, leading=12)),
+            ScoreBar(sc, mx, width=bar_col_w, height=6),
+            Paragraph(f"<b>{sc}</b> / {mx}",
+                      _style("sn", fontName="Helvetica", fontSize=9,
+                             textColor=INK, leading=12, alignment=TA_RIGHT)),
         ])
 
     score_table = Table(
         rows,
-        colWidths=[52*mm, bar_w, 18*mm],
-        rowHeights=[9*mm] * len(rows),
+        colWidths=[48*mm, bar_col_w, 22*mm],
+        rowHeights=[8.5*mm] * len(rows),
     )
     score_table.setStyle(TableStyle([
         ("VALIGN",        (0, 0), (-1, -1), "MIDDLE"),
-        ("ROWBACKGROUNDS",(0, 0), (-1, -1), [OFF_WHITE, WHITE]),
+        ("ROWBACKGROUNDS",(0, 0), (-1, -1), [WHITE, BAND_BG]),
         ("LEFTPADDING",   (0, 0), (-1, -1), 3*mm),
         ("RIGHTPADDING",  (0, 0), (-1, -1), 3*mm),
-        ("TOPPADDING",    (0, 0), (-1, -1), 1*mm),
-        ("BOTTOMPADDING", (0, 0), (-1, -1), 1*mm),
+        ("TOPPADDING",    (0, 0), (-1, -1), 0),
+        ("BOTTOMPADDING", (0, 0), (-1, -1), 0),
+        ("LINEBELOW",     (0, -1), (-1, -1), 0.5, RULE),
     ]))
     story.append(score_table)
-    story.append(Spacer(1, 4*mm))
+    story.append(Spacer(1, 5*mm))
 
-    # ── TOTAL + RATING ────────────────────────────────────────────────────────
-    total = data.get("total", sum(
-        v["score"] for v in data["scores"].values()
-    ))
+    # ── TOTAL SCORE + RATING (clean two-column band) ──────────────────────────
+    total  = data.get("total", sum(v["score"] for v in data["scores"].values()))
     rating = data.get("rating", "Competitive")
-    rating_color = RATING_COLOURS.get(rating, ORANGE)
+    r_col  = RATING_COLOURS.get(rating, TEAL)
 
     total_table = Table(
         [[
-            Paragraph(f"TOTAL SCORE  <b>{total} / 100</b>", S_TOTAL),
             Paragraph(
-                f"<font color='{rating_color.hexval()}'>{rating}</font>",
-                style("rt", fontName="Helvetica-Bold", fontSize=22,
-                      textColor=rating_color, leading=26, alignment=TA_RIGHT)
+                f"<b>{total}</b> / 100",
+                _style("tot", fontName="Helvetica-Bold", fontSize=28,
+                       textColor=WHITE, leading=32),
+            ),
+            Paragraph(
+                f"<b>{rating}</b>",
+                _style("rat", fontName="Helvetica-Bold", fontSize=18,
+                       textColor=r_col, leading=22, alignment=TA_RIGHT),
             ),
         ]],
-        colWidths=[W * 0.55, W * 0.45],
+        colWidths=[W * 0.4, W * 0.6],
     )
     total_table.setStyle(TableStyle([
-        ("BACKGROUND",    (0, 0), (-1, -1), DARK),
+        ("BACKGROUND",    (0, 0), (-1, -1), INK),
         ("VALIGN",        (0, 0), (-1, -1), "MIDDLE"),
-        ("LEFTPADDING",   (0, 0), (0, 0),   4*mm),
-        ("RIGHTPADDING",  (1, 0), (1, 0),   4*mm),
-        ("TOPPADDING",    (0, 0), (-1, -1), 3.5*mm),
-        ("BOTTOMPADDING", (0, 0), (-1, -1), 3.5*mm),
+        ("LEFTPADDING",   (0, 0), (0, 0),   5*mm),
+        ("RIGHTPADDING",  (1, 0), (1, 0),   5*mm),
+        ("TOPPADDING",    (0, 0), (-1, -1), 4*mm),
+        ("BOTTOMPADDING", (0, 0), (-1, -1), 4*mm),
     ]))
     story.append(total_table)
-    story.append(Spacer(1, 6*mm))
+    story.append(Spacer(1, 7*mm))
 
     # ── DIMENSION NOTES ───────────────────────────────────────────────────────
     notes = data.get("dimension_notes", {})
-    if notes:
-        story.append(Paragraph("DIMENSION NOTES", S_LABEL))
-        story.append(Spacer(1, 1.5*mm))
-        note_rows = []
-        for key, label in dimension_labels.items():
-            note = notes.get(key, "")
-            if note:
-                note_rows.append([
-                    Paragraph(label, S_SCORE_LABEL),
-                    Paragraph(note, S_NOTE),
-                ])
-        if note_rows:
-            note_table = Table(note_rows, colWidths=[52*mm, W - 52*mm])
-            note_table.setStyle(TableStyle([
-                ("VALIGN",        (0, 0), (-1, -1), "TOP"),
-                ("ROWBACKGROUNDS",(0, 0), (-1, -1), [OFF_WHITE, WHITE]),
-                ("LEFTPADDING",   (0, 0), (-1, -1), 3*mm),
-                ("RIGHTPADDING",  (0, 0), (-1, -1), 3*mm),
-                ("TOPPADDING",    (0, 0), (-1, -1), 2*mm),
-                ("BOTTOMPADDING", (0, 0), (-1, -1), 2*mm),
-            ]))
-            story.append(note_table)
-            story.append(Spacer(1, 6*mm))
+    note_rows = [
+        (k, notes[k]) for k in dimension_labels if notes.get(k)
+    ]
+    if note_rows:
+        story.append(Paragraph(
+            "DIMENSION NOTES",
+            _style("sec2", fontName="Helvetica-Bold", fontSize=7.5,
+                   textColor=TEAL, leading=10, letterSpacing=1.5,
+                   spaceAfter=2*mm),
+        ))
+        nt_data = [
+            [
+                Paragraph(dimension_labels[k],
+                          _style("nl", fontName="Helvetica-Bold", fontSize=8.5,
+                                 textColor=INK, leading=12)),
+                Paragraph(v,
+                          _style("nv", fontName="Helvetica-Oblique", fontSize=8.5,
+                                 textColor=GREY_NOTE, leading=13)),
+            ]
+            for k, v in note_rows
+        ]
+        nt = Table(nt_data, colWidths=[52*mm, W - 52*mm])
+        nt.setStyle(TableStyle([
+            ("VALIGN",        (0, 0), (-1, -1), "TOP"),
+            ("ROWBACKGROUNDS",(0, 0), (-1, -1), [WHITE, BAND_BG]),
+            ("LEFTPADDING",   (0, 0), (-1, -1), 3*mm),
+            ("RIGHTPADDING",  (0, 0), (-1, -1), 3*mm),
+            ("TOPPADDING",    (0, 0), (-1, -1), 2.5*mm),
+            ("BOTTOMPADDING", (0, 0), (-1, -1), 2.5*mm),
+        ]))
+        story.append(nt)
+        story.append(Spacer(1, 7*mm))
 
     # ── ACTION PLAN ───────────────────────────────────────────────────────────
+    story.append(Paragraph(
+        "ACTION PLAN",
+        _style("sec3", fontName="Helvetica-Bold", fontSize=7.5,
+               textColor=TEAL, leading=10, letterSpacing=1.5,
+               spaceAfter=2*mm),
+    ))
+
     priorities = [
-        ("priority_1", "PRIORITY 1", "Do this before applying", ORANGE),
-        ("priority_2", "PRIORITY 2", "Strongly recommended",    TEAL),
-        ("priority_3", "PRIORITY 3", "Nice to have",            GREY_MID),
+        ("priority_1", "PRIORITY 1", "Do this before applying",
+         colors.HexColor("#1C1C1C"), TEAL),
+        ("priority_2", "PRIORITY 2", "Strongly recommended",
+         colors.HexColor("#3A3A3A"), colors.HexColor("#AAAAAA")),
+        ("priority_3", "PRIORITY 3", "Nice to have",
+         colors.HexColor("#555555"), colors.HexColor("#AAAAAA")),
     ]
 
-    story.append(Paragraph("ACTION PLAN", S_LABEL))
-    story.append(Spacer(1, 1.5*mm))
-
-    for key, label, sub, col in priorities:
+    for key, label, subtitle, accent, _ in priorities:
         items = data.get(key, [])
-        if not items:
-            continue
-        block = []
-        # Priority header
-        hdr = Table(
-            [[
-                Paragraph(label, style("pl", fontName="Helvetica-Bold",
-                                       fontSize=9, textColor=WHITE, leading=12)),
-                Paragraph(sub,  style("ps", fontName="Helvetica",
-                                      fontSize=8.5, textColor=WHITE,
-                                      leading=12, alignment=TA_RIGHT)),
-            ]],
-            colWidths=[W * 0.4, W * 0.6],
-        )
-        hdr.setStyle(TableStyle([
-            ("BACKGROUND",    (0, 0), (-1, -1), col),
-            ("LEFTPADDING",   (0, 0), (0, 0),   3*mm),
-            ("RIGHTPADDING",  (1, 0), (1, 0),   3*mm),
-            ("TOPPADDING",    (0, 0), (-1, -1), 2*mm),
-            ("BOTTOMPADDING", (0, 0), (-1, -1), 2*mm),
-            ("VALIGN",        (0, 0), (-1, -1), "MIDDLE"),
-        ]))
-        block.append(hdr)
-        for item in items:
-            block.append(
-                Paragraph(f"<bullet>•</bullet> {item}", S_BULLET)
-            )
-        block.append(Spacer(1, 4*mm))
-        story.append(KeepTogether(block))
+        if items:
+            story.append(_priority_block(label, subtitle, items, accent, TEAL, W))
 
     # ── FOOTER ────────────────────────────────────────────────────────────────
-    story.append(HRFlowable(width="100%", thickness=1, color=GREY_LIGHT,
-                             spaceBefore=4*mm, spaceAfter=3*mm))
-    story.append(Paragraph(
-        f"{REVIEWER_NAME}  ·  {REVIEWER_TITLE}  ·  {REVIEWER_BRAND}  "
-        f"·  Generated {date_str}",
-        S_FOOTER
-    ))
-    story.append(Paragraph(
-        "This report was generated using the Job Search AI Kit. "
-        "All analysis is for guidance only.",
-        style("disc", fontName="Helvetica-Oblique", fontSize=7,
-              textColor=GREY_LIGHT, alignment=TA_CENTER, leading=10)
-    ))
+    story.append(Spacer(1, 4*mm))
+    story.append(HRFlowable(width="100%", thickness=0.75, color=RULE,
+                             spaceAfter=3*mm))
+
+    footer_table = Table(
+        [[
+            Paragraph(
+                f"<b>{REVIEWER_NAME}</b>  ·  {REVIEWER_TITLE}",
+                _style("fl", fontName="Helvetica", fontSize=7.5,
+                       textColor=GREY_LABEL, leading=11),
+            ),
+            Paragraph(
+                f'<link href="{SERIES_URL}"><font color="#16B2B2">'
+                f'Follow the series: {REVIEWER_BRAND}</font></link>',
+                _style("fr", fontName="Helvetica", fontSize=7.5,
+                       textColor=GREY_LABEL, leading=11, alignment=TA_RIGHT),
+            ),
+        ]],
+        colWidths=[W * 0.5, W * 0.5],
+    )
+    footer_table.setStyle(TableStyle([
+        ("VALIGN",        (0, 0), (-1, -1), "TOP"),
+        ("LEFTPADDING",   (0, 0), (-1, -1), 0),
+        ("RIGHTPADDING",  (0, 0), (-1, -1), 0),
+        ("TOPPADDING",    (0, 0), (-1, -1), 0),
+        ("BOTTOMPADDING", (0, 0), (-1, -1), 0),
+    ]))
+    story.append(footer_table)
 
     doc.build(story)
     print(f"Report saved: {output_path}")
@@ -530,12 +515,12 @@ def main():
 
     if sys.argv[1] == "--sample":
         data = SAMPLE_DATA
-        out = "score_report_sample.pdf"
+        out  = "score_report_sample.pdf"
     else:
         with open(sys.argv[1]) as f:
             data = json.load(f)
         base = str(Path(sys.argv[1]).with_suffix(""))
-        out = data.get("output_path") or f"{base}_report.pdf"
+        out  = data.get("output_path") or f"{base}_report.pdf"
 
     build_report(data, out)
 
