@@ -1,0 +1,11 @@
+# Generated reports (PDF outputs from /score-resume)
+reports/*.pdf
+reports/*.json
+!reports/.gitkeep
+
+# macOS
+.DS_Store
+
+# Editor
+.vscode/
+*.swp
