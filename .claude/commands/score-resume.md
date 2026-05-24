@@ -136,7 +136,79 @@ Format as:
 
 ---
 
-## Step 6: Offer next steps
+## Step 6: Generate the PDF report
+
+After displaying the score and action plan, automatically generate a professional PDF report.
+
+**Step 6a — Check dependency**
+
+Run: `python3 -c "import reportlab" 2>/dev/null || pip3 install reportlab -q`
+
+**Step 6b — Write the score data to a temporary JSON file**
+
+Create a file at `reports/score_data_temp.json` with this exact structure:
+
+```json
+{
+  "candidate_name": "<name from resume, or 'Candidate' if not found>",
+  "role_title": "<role title from job description>",
+  "company": "<company name from job description>",
+  "date": "",
+  "scores": {
+    "keyword_match":    { "score": <int>, "max": 25 },
+    "skills_alignment": { "score": <int>, "max": 20 },
+    "experience":       { "score": <int>, "max": 25 },
+    "achievements":     { "score": <int>, "max": 15 },
+    "structure_ats":    { "score": <int>, "max": 10 },
+    "education":        { "score": <int>, "max":  5 }
+  },
+  "total": <int>,
+  "rating": "<Weak | Developing | Competitive | Strong | Exceptional>",
+  "dimension_notes": {
+    "keyword_match":    "<one sentence summary of keyword gaps>",
+    "skills_alignment": "<one sentence summary>",
+    "experience":       "<one sentence summary>",
+    "achievements":     "<one sentence summary>",
+    "structure_ats":    "<one sentence summary>",
+    "education":        "<one sentence summary>"
+  },
+  "priority_1": ["<action>", "<action>"],
+  "priority_2": ["<action>", "<action>"],
+  "priority_3": ["<action>"]
+}
+```
+
+**Step 6c — Run the report generator**
+
+```bash
+python3 .claude/commands/generate_score_report.py reports/score_data_temp.json
+```
+
+This saves the PDF to `reports/score_data_temp_report.pdf`.
+
+**Step 6d — Rename to a clean filename**
+
+Build the output filename using these rules:
+- Use the candidate name from the resume, falling back to `Candidate` if not found
+- Use the role title from the job description, falling back to `Role` if not found
+- Replace all spaces and non-alphanumeric characters (except underscores) with underscores
+- Final format: `reports/<CandidateName>_<RoleTitle>_ScoreReport.pdf`
+
+Example: Jane Doe applying for "Senior Data Engineer" → `reports/Jane_Doe_Senior_Data_Engineer_ScoreReport.pdf`
+
+Rename `reports/score_data_temp_report.pdf` to the final filename, then delete `reports/score_data_temp.json`.
+
+**Step 6e — Confirm to the user**
+
+Tell the user:
+"Your score report has been saved to: `reports/<CandidateName>_<RoleTitle>_ScoreReport.pdf`
+It is formatted and ready to share."
+
+(Use the actual resolved filename, not a placeholder.)
+
+---
+
+## Step 7: Offer next steps
 
 Close with:
 
