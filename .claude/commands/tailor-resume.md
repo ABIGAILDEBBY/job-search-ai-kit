@@ -128,8 +128,13 @@ Write and execute Python code using python-docx to produce the resume as a forma
 ```python
 from docx.oxml.shared import OxmlElement, qn
 
-def add_hyperlink(paragraph, display_text, url, font_size=11, color="0563C1"):
-    """Add a clickable hyperlink run to an existing paragraph."""
+def add_hyperlink(paragraph, display_text, url, font_size=11, color="1A7FC1"):
+    """Add a clickable hyperlink run to an existing paragraph.
+
+    Works for all URL schemes: https://, mailto:, tel:.
+    Does NOT rely on a named Word style so the link is always functional.
+    Renders in the supplied colour with no underline.
+    """
     part = paragraph.part
     r_id = part.relate_to(
         url,
@@ -142,16 +147,15 @@ def add_hyperlink(paragraph, display_text, url, font_size=11, color="0563C1"):
     run_el = OxmlElement("w:r")
     rPr = OxmlElement("w:rPr")
 
-    rStyle = OxmlElement("w:rStyle")
-    rStyle.set(qn("w:val"), "Hyperlink")
-    rPr.append(rStyle)
-
+    # Apply colour directly — do NOT use w:rStyle "Hyperlink" because that
+    # named style may not exist in the document and will silently break the link.
     col = OxmlElement("w:color")
     col.set(qn("w:val"), color)
     rPr.append(col)
 
+    # Explicitly suppress underline so links look clean without the underline.
     ul = OxmlElement("w:u")
-    ul.set(qn("w:val"), "single")
+    ul.set(qn("w:val"), "none")
     rPr.append(ul)
 
     sz = OxmlElement("w:sz")
