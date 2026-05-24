@@ -111,6 +111,7 @@ class ScoreBar(Flowable):
     """Horizontal progress bar showing score / max."""
 
     def __init__(self, score, max_score, width=120, height=10):
+        """Initialise the bar with score, maximum value, and pixel dimensions."""
         Flowable.__init__(self)
         self.score = score
         self.max_score = max_score
@@ -120,6 +121,7 @@ class ScoreBar(Flowable):
         self.height = height + 2
 
     def draw(self):
+        """Render the track and filled portion onto the canvas."""
         # Always draw the empty track
         self.canv.setFillColor(GREY_LIGHT)
         self.canv.roundRect(0, 1, self.bar_w, self.bar_h, 3, fill=1, stroke=0)
@@ -141,12 +143,14 @@ class HeaderBand(Flowable):
     """Full-width dark header with orange accent line at the bottom."""
 
     def __init__(self, page_width, height=62*mm):
+        """Initialise the band with the full page width and desired height."""
         Flowable.__init__(self)
         self.page_width = page_width
         self.height = height
         self.width = page_width
 
     def draw(self):
+        """Render the dark background rectangle and orange bottom accent."""
         # Dark background
         self.canv.setFillColor(DARK)
         self.canv.rect(0, 0, self.page_width, self.height, fill=1, stroke=0)
@@ -159,6 +163,7 @@ class CirclePhoto(Flowable):
     """Draws the reviewer photo clipped to a circle with an orange border."""
 
     def __init__(self, path, diameter=38*mm):
+        """Initialise with the image file path and circle diameter in points."""
         Flowable.__init__(self)
         self.path = str(path)
         self.d = diameter
@@ -166,6 +171,7 @@ class CirclePhoto(Flowable):
         self.height = diameter
 
     def draw(self):
+        """Render the orange border ring and clip the image to a circle."""
         if not os.path.exists(self.path):
             return
         r = self.d / 2
@@ -187,6 +193,14 @@ class CirclePhoto(Flowable):
 # ─── PDF builder ──────────────────────────────────────────────────────────────
 
 def build_report(data: dict, output_path: str):
+    """Build and save the PDF score report from a structured data dictionary.
+
+    Args:
+        data: Score data dict containing candidate info, dimension scores,
+              dimension notes, and priority action items. See SAMPLE_DATA
+              for the expected schema.
+        output_path: Absolute or relative path where the PDF will be saved.
+    """
     date_str = data.get("date") or datetime.now().strftime("%d %B %Y")
 
     doc = SimpleDocTemplate(
@@ -211,6 +225,7 @@ def build_report(data: dict, output_path: str):
     W = A4[0] - 36*mm  # usable width
 
     def style(name, **kw):
+        """Create and return a named ParagraphStyle with the given attributes."""
         s = ParagraphStyle(name, **kw)
         return s
 
@@ -507,6 +522,7 @@ def build_report(data: dict, output_path: str):
 # ─── Entry point ──────────────────────────────────────────────────────────────
 
 def main():
+    """Parse CLI arguments and invoke build_report with the supplied data file."""
     if len(sys.argv) < 2:
         print("Usage: python3 generate_score_report.py <data.json>")
         print("       python3 generate_score_report.py --sample")
