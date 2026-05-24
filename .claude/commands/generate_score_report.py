@@ -11,6 +11,7 @@ The data.json must contain the fields shown in SAMPLE_DATA below.
 
 import json
 import os
+import re
 import sys
 from datetime import datetime
 from pathlib import Path
@@ -30,6 +31,7 @@ try:
     from reportlab.graphics import renderPDF
     from reportlab.pdfbase import pdfmetrics
     from reportlab.pdfbase.ttfonts import TTFont
+    from reportlab.lib.pdfencrypt import StandardEncryption
 except ImportError:
     print("reportlab is required. Run: pip3 install reportlab")
     sys.exit(1)
@@ -114,12 +116,14 @@ class ScoreBar(Flowable):
         self.height = height + 2
 
     def draw(self):
-        filled = (self.score / self.max_score) * self.bar_w
-        # Track
+        # Always draw the empty track
         self.canv.setFillColor(GREY_LIGHT)
         self.canv.roundRect(0, 1, self.bar_w, self.bar_h, 3, fill=1, stroke=0)
-        # Fill
+        # Guard against divide-by-zero; skip fill if max_score is invalid
+        if self.max_score <= 0:
+            return
         pct = self.score / self.max_score
+        filled = pct * self.bar_w
         fill_color = (
             ORANGE if pct >= 0.8
             else colors.HexColor("#E8A020") if pct >= 0.6
@@ -193,8 +197,10 @@ def build_report(data: dict, output_path: str):
         subject=f"Resume score for {data.get('candidate_name', 'Candidate')}",
         creator=f"{REVIEWER_NAME} via Job Search AI Kit",
         producer="Job Search AI Kit",
-        # Encrypt with empty password = non-editable, printable
-        encrypt=None,
+        # Empty user password (open freely) + owner password locks editing.
+        # canPrint=1 allows printing; canModify=0 disables editing in viewers.
+        encrypt=StandardEncryption("", canPrint=1, canModify=0,
+                                   canCopy=0, canAnnotate=0),
     )
 
     styles = getSampleStyleSheet()
@@ -474,7 +480,7 @@ def main():
     else:
         with open(sys.argv[1]) as f:
             data = json.load(f)
-        base = sys.argv[1].replace(".json", "")
+        base = str(Path(sys.argv[1]).with_suffix(""))
         out = data.get("output_path") or f"{base}_report.pdf"
 
     build_report(data, out)
