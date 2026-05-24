@@ -1,0 +1,40 @@
+{
+  "_description": "Modern Tech — designed for engineering, data, and product roles at modern tech companies and startups. One tasteful navy accent color on the name and section headings. Calibri sans-serif for screen-first viewing. Based on research showing sans-serif fonts score higher for perceived competence in tech hiring (Interview Guys, 2024) and that subtle color accents increase interview rates by 34% vs. pure monochrome (Stanford study via Enhancv).",
+  "_edit_instructions": "Change any value below and re-run /tailor-resume. To change the accent color, update color_name, color_heading, and color_accent to the same hex value. All values are 6-digit hex without the # symbol.",
+
+  "name": "Modern Tech",
+  "font_body": "Calibri",
+  "font_heading": "Calibri",
+  "font_size_name": 20,
+  "font_size_heading": 11,
+  "font_size_body": 11,
+  "font_size_bullet": 10.5,
+  "font_size_contact": 10,
+
+  "color_name": "1A3A5C",
+  "color_heading": "1A3A5C",
+  "color_body": "000000",
+  "color_accent": "1A3A5C",
+  "color_heading_border": "1A3A5C",
+
+  "heading_style": "bottom_border",
+  "heading_border_size": 6,
+  "heading_alignment": "left",
+  "name_alignment": "left",
+  "contact_alignment": "left",
+
+  "margin_top_inches": 0.75,
+  "margin_bottom_inches": 0.75,
+  "margin_left_inches": 0.75,
+  "margin_right_inches": 0.75,
+
+  "line_spacing": 1.15,
+  "space_before_heading_pt": 10,
+  "space_after_heading_pt": 4,
+  "space_after_body_pt": 1,
+  "space_after_bullet_pt": 1,
+
+  "skills_format": "inline_categories",
+  "contact_separator": "  |  ",
+  "show_target_role_subtitle": false
+}

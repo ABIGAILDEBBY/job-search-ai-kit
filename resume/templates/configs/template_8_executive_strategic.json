@@ -1,0 +1,41 @@
+{
+  "_description": "Executive Strategic — designed for directors, VPs, C-suite, and candidates with 10+ years of experience. Opens with a 2-3 line executive positioning statement (not an objective), followed by core leadership competencies, then career narrative. Bold navy left-border on section headings signals authority. Two pages expected. Research: ResumeGo study (482 recruiters, 7,712 resumes) found two-page resumes chosen 2.3x more often than one-page for experienced candidates. HBR 2024 notes growing emphasis on social/strategic skills at C-suite level alongside P&L and scale.",
+  "_edit_instructions": "Change color_accent and color_heading to the same value to change the left-border accent color. font_size_name can be increased to 26 for very senior roles. All values are 6-digit hex without the # symbol.",
+
+  "name": "Executive Strategic",
+  "font_body": "Calibri",
+  "font_heading": "Calibri",
+  "font_size_name": 24,
+  "font_size_heading": 12,
+  "font_size_body": 11,
+  "font_size_bullet": 11,
+  "font_size_contact": 11,
+
+  "color_name": "000000",
+  "color_heading": "1A3A5C",
+  "color_body": "000000",
+  "color_accent": "1A3A5C",
+  "color_heading_border": "1A3A5C",
+
+  "heading_style": "left_border",
+  "heading_border_size": 18,
+  "heading_alignment": "left",
+  "name_alignment": "left",
+  "contact_alignment": "left",
+
+  "margin_top_inches": 0.85,
+  "margin_bottom_inches": 0.85,
+  "margin_left_inches": 0.9,
+  "margin_right_inches": 0.9,
+
+  "line_spacing": 1.15,
+  "space_before_heading_pt": 14,
+  "space_after_heading_pt": 6,
+  "space_after_body_pt": 3,
+  "space_after_bullet_pt": 3,
+
+  "skills_format": "inline_categories",
+  "contact_separator": "   |   ",
+  "show_target_role_subtitle": true,
+  "include_competencies_band": true
+}

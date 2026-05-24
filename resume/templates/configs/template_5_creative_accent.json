@@ -1,0 +1,41 @@
+{
+  "_description": "Creative Accent — designed for UX/UI design, product design, marketing, and creative roles. Portfolio URL is the most prominent contact element. A teal accent rule beneath the name and section headings signals design sensibility while remaining ATS-safe single-column. Research: 78% of UX hiring managers prioritise portfolio link visibility (NNGroup). Restrained by design — signals that the candidate understands design restraint.",
+  "_edit_instructions": "Change any value below and re-run /tailor-resume. To change the accent color, update color_accent and color_heading_border to the same hex value. All values are 6-digit hex without the # symbol.",
+
+  "name": "Creative Accent",
+  "font_body": "Calibri",
+  "font_heading": "Calibri",
+  "font_size_name": 22,
+  "font_size_heading": 11,
+  "font_size_body": 11,
+  "font_size_bullet": 10.5,
+  "font_size_contact": 10,
+
+  "color_name": "000000",
+  "color_heading": "006D77",
+  "color_body": "000000",
+  "color_accent": "006D77",
+  "color_heading_border": "006D77",
+
+  "heading_style": "bottom_border",
+  "heading_border_size": 8,
+  "heading_alignment": "left",
+  "name_alignment": "left",
+  "contact_alignment": "left",
+
+  "margin_top_inches": 0.75,
+  "margin_bottom_inches": 0.75,
+  "margin_left_inches": 0.75,
+  "margin_right_inches": 0.75,
+
+  "line_spacing": 1.15,
+  "space_before_heading_pt": 12,
+  "space_after_heading_pt": 4,
+  "space_after_body_pt": 2,
+  "space_after_bullet_pt": 2,
+
+  "skills_format": "inline_categories",
+  "contact_separator": "   ·   ",
+  "show_target_role_subtitle": true,
+  "portfolio_prominent": true
+}
