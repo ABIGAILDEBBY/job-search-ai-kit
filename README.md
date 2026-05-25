@@ -7,7 +7,7 @@
 *A Claude-powered workspace for tech and data professionals navigating international job searches*
 
 [![Powered by Claude](https://img.shields.io/badge/Powered%20by-Claude%20AI-E8611A?style=for-the-badge&logoColor=white)](https://claude.ai)
-[![Slash Commands](https://img.shields.io/badge/Slash%20Commands-7%20built--in-16B2B2?style=for-the-badge)](https://github.com/ABIGAILDEBBY/job-search-ai-kit/tree/main/.claude/commands)
+[![Slash Commands](https://img.shields.io/badge/Slash%20Commands-8%20built--in-16B2B2?style=for-the-badge)](https://github.com/ABIGAILDEBBY/job-search-ai-kit/tree/main/.claude/commands)
 [![Article Series](https://img.shields.io/badge/Article%20Series-24%20articles-FFC857?style=for-the-badge)](https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7461467553941532672)
 [![License](https://img.shields.io/badge/License-MIT-lightgrey?style=for-the-badge)](LICENSE)
 
@@ -103,6 +103,11 @@ No account, no terminal, no config needed.
       <td><code>/pre-submit</code></td>
       <td>Final checklist before you hit apply</td>
       <td>Every single time</td>
+    </tr>
+    <tr>
+      <td><code>/prep-interview</code></td>
+      <td>Targeted interview questions from your actual resume and the JD</td>
+      <td>As soon as you get an interview</td>
     </tr>
   </tbody>
 </table>
