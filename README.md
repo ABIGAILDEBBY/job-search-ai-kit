@@ -23,7 +23,7 @@
 
 You clone this repo once, fill in your profile, and use it for your entire job search. It gives Claude the context it needs to help you vet jobs, tailor your resume, write cold emails, and run pre-apply checks — without re-explaining yourself every single time.
 
-Built alongside **[The Job Search No One Taught You](https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7461467553941532672)** — a 24-article LinkedIn series by [Abigail Woolley](https://www.linkedin.com/in/abigailwoolley/).
+Built alongside **[The Job Search No One Taught You](https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7461467553941532672)** — a 24-article LinkedIn series by [Abigail Woolley](https://www.linkedin.com/in/abigail-woolley/).
 
 ---
 

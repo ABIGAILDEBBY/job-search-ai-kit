@@ -1,0 +1,43 @@
+{
+  "_description": "Entry Academic — designed for students and candidates with under 2 years of experience. Education section leads. Dark shaded section headings with white text create clear visual hierarchy without relying on color in body text. One page optimised. Research: 82% of organisations use ATS even for entry-level roles (Enhancv 2025), so this template remains ATS-safe despite the shaded headings. Inline skill categories signal technical literacy despite limited work history.",
+  "_edit_instructions": "Change heading_fill_color to change the section heading background. heading_text_color should stay FFFFFF (white) unless you choose a very light fill. All values are 6-digit hex without the # symbol.",
+
+  "name": "Entry Academic",
+  "font_body": "Calibri",
+  "font_heading": "Calibri",
+  "font_size_name": 18,
+  "font_size_heading": 11,
+  "font_size_body": 11,
+  "font_size_bullet": 10.5,
+  "font_size_contact": 10,
+
+  "color_name": "000000",
+  "color_heading": "FFFFFF",
+  "color_body": "000000",
+  "color_accent": "1F2D3D",
+  "color_heading_border": "1F2D3D",
+  "heading_fill_color": "1F2D3D",
+  "heading_text_color": "FFFFFF",
+
+  "heading_style": "shaded",
+  "heading_border_size": 0,
+  "heading_alignment": "left",
+  "name_alignment": "center",
+  "contact_alignment": "center",
+
+  "margin_top_inches": 0.75,
+  "margin_bottom_inches": 0.75,
+  "margin_left_inches": 0.75,
+  "margin_right_inches": 0.75,
+
+  "line_spacing": 1.15,
+  "space_before_heading_pt": 8,
+  "space_after_heading_pt": 4,
+  "space_after_body_pt": 2,
+  "space_after_bullet_pt": 2,
+
+  "skills_format": "inline_categories",
+  "contact_separator": "  |  ",
+  "show_target_role_subtitle": false,
+  "education_first": true
+}

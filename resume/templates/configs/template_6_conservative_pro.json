@@ -1,0 +1,40 @@
+{
+  "_description": "Conservative Professional — designed for finance, banking, law, compliance, accounting, and healthcare. Pure black and white, Georgia serif font. Research: 61% of hiring managers in CareerBuilder survey dismissed colourful resumes as unprofessional in finance and law. Georgia is preferred over Times New Roman for screen-first reading while retaining the authority of a serif typeface. Based on patterns from Wall Street IB resume conventions and Georgetown/Berkeley Law career services guidance.",
+  "_edit_instructions": "This template intentionally uses no accent color. Font can be changed to Garamond for a more traditional look. All values are 6-digit hex without the # symbol.",
+
+  "name": "Conservative Professional",
+  "font_body": "Georgia",
+  "font_heading": "Georgia",
+  "font_size_name": 16,
+  "font_size_heading": 11,
+  "font_size_body": 11,
+  "font_size_bullet": 10.5,
+  "font_size_contact": 10.5,
+
+  "color_name": "000000",
+  "color_heading": "000000",
+  "color_body": "000000",
+  "color_accent": "000000",
+  "color_heading_border": "000000",
+
+  "heading_style": "bottom_border",
+  "heading_border_size": 4,
+  "heading_alignment": "left",
+  "name_alignment": "left",
+  "contact_alignment": "left",
+
+  "margin_top_inches": 0.9,
+  "margin_bottom_inches": 0.9,
+  "margin_left_inches": 1.0,
+  "margin_right_inches": 1.0,
+
+  "line_spacing": 1.15,
+  "space_before_heading_pt": 10,
+  "space_after_heading_pt": 3,
+  "space_after_body_pt": 2,
+  "space_after_bullet_pt": 2,
+
+  "skills_format": "inline_categories",
+  "contact_separator": "  |  ",
+  "show_target_role_subtitle": false
+}
