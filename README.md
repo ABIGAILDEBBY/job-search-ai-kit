@@ -165,6 +165,6 @@ The kit is designed to be self-sufficient and most people won't need anything be
 
 <br/>
 
-Made with care by [Abigail Woolley](https://www.linkedin.com/in/abigailwoolley/) &nbsp;·&nbsp; [Subscribe to the series](https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7461467553941532672)
+Made with care by [Abigail Woolley](https://www.linkedin.com/in/abigail-woolley/) &nbsp;·&nbsp; [Subscribe to the series](https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7461467553941532672)
 
 </div>
