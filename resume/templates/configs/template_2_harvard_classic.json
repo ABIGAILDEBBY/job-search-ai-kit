@@ -1,0 +1,40 @@
+{
+  "_description": "Harvard Classic — directly modelled on the Harvard Faculty of Arts and Sciences Career Services resume template. Garamond serif, ALL CAPS section headings with a full-width horizontal rule beneath each one. The most recognised academic and consulting resume signature. Research source: Harvard CAPD careerservices.fas.harvard.edu.",
+  "_edit_instructions": "Change any value below and re-run /tailor-resume. All color values are 6-digit hex without the # symbol.",
+
+  "name": "Harvard Classic",
+  "font_body": "Garamond",
+  "font_heading": "Garamond",
+  "font_size_name": 16,
+  "font_size_heading": 11,
+  "font_size_body": 11,
+  "font_size_bullet": 10.5,
+  "font_size_contact": 10.5,
+
+  "color_name": "000000",
+  "color_heading": "000000",
+  "color_body": "000000",
+  "color_accent": "000000",
+  "color_heading_border": "000000",
+
+  "heading_style": "bottom_border",
+  "heading_border_size": 6,
+  "heading_alignment": "left",
+  "name_alignment": "center",
+  "contact_alignment": "center",
+
+  "margin_top_inches": 0.75,
+  "margin_bottom_inches": 0.75,
+  "margin_left_inches": 0.75,
+  "margin_right_inches": 0.75,
+
+  "line_spacing": 1.15,
+  "space_before_heading_pt": 10,
+  "space_after_heading_pt": 3,
+  "space_after_body_pt": 2,
+  "space_after_bullet_pt": 2,
+
+  "skills_format": "inline_categories",
+  "contact_separator": "  |  ",
+  "show_target_role_subtitle": false
+}

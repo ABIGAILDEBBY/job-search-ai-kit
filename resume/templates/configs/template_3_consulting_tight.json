@@ -1,0 +1,42 @@
+{
+  "_description": "Consulting Tight — modelled on the McKinsey, BCG, and Bain one-page resume format as documented by Management Consulted and IGotAnOffer. Exactly one page. Four sections: Education, Experience, Leadership, Interests. Most impressive bullet listed first within each role. Interests section is real and read by interviewers.",
+  "_edit_instructions": "Change any value below and re-run /tailor-resume. All color values are 6-digit hex without the # symbol.",
+
+  "name": "Consulting Tight",
+  "font_body": "Calibri",
+  "font_heading": "Calibri",
+  "font_size_name": 16,
+  "font_size_heading": 11,
+  "font_size_body": 10.5,
+  "font_size_bullet": 10,
+  "font_size_contact": 10,
+
+  "color_name": "000000",
+  "color_heading": "000000",
+  "color_body": "000000",
+  "color_accent": "000000",
+  "color_heading_border": "000000",
+
+  "heading_style": "bottom_border",
+  "heading_border_size": 4,
+  "heading_alignment": "left",
+  "name_alignment": "left",
+  "contact_alignment": "left",
+
+  "margin_top_inches": 0.75,
+  "margin_bottom_inches": 0.75,
+  "margin_left_inches": 1.0,
+  "margin_right_inches": 1.0,
+
+  "line_spacing": 1.1,
+  "space_before_heading_pt": 8,
+  "space_after_heading_pt": 2,
+  "space_after_body_pt": 1,
+  "space_after_bullet_pt": 1,
+
+  "skills_format": "inline_categories",
+  "contact_separator": "  |  ",
+  "show_target_role_subtitle": false,
+  "include_interests_section": true,
+  "bullets_ordered_by_impact": true
+}
