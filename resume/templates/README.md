@@ -50,7 +50,7 @@ This folder contains configuration files for the 8 resume templates available in
 | `space_after_body_pt` | Points of space after each body paragraph |
 | `space_after_bullet_pt` | Points of space after each bullet point |
 | `skills_format` | How the skills section is rendered — `inline_categories` displays skills as labeled inline lists (ATS-safe) |
-| `contact_separator` | String placed between contact items (e.g. `"  |  "` or `"   ·   "`) |
+| `contact_separator` | String placed between contact items (e.g. `"  \|  "` or `"   ·   "`) |
 | `education_first` | `true` puts Education before Work Experience (set automatically for students and Template 7) |
 | `portfolio_prominent` | `true` places the portfolio URL first in the contact line, before email (Template 5) |
 | `include_interests_section` | `true` adds an Interests section at the end (McKinsey/consulting format, Template 3) |

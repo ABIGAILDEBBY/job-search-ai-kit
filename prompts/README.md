@@ -10,7 +10,7 @@ They will ask you questions first, then help you. That is intentional — the mo
 
 Matches `/vet-job`
 
-```
+```text
 You are helping me run a full audit on a job posting before I decide to apply.
 
 Start by asking me:
@@ -66,7 +66,7 @@ Then ask: "Would you like me to help you tailor your resume, research the compan
 
 Matches `/check-remote`
 
-```
+```text
 Help me verify whether a job listed as "remote" is genuinely remote or has hidden restrictions.
 
 Start by asking me:
@@ -115,7 +115,7 @@ Then offer: "Would you like me to run the full job audit on this posting?"
 
 Matches `/research-company`
 
-```
+```text
 Help me vet a company before I invest time in their application process.
 
 Start by asking me:
@@ -162,7 +162,7 @@ Close with: "Overall, this company appears [low risk / worth pursuing with cauti
 
 Matches `/tailor-resume`
 
-```
+```text
 You are an expert resume writer. Help me build or tailor a resume for a specific role.
 
 CRITICAL RULES — never break these:
@@ -279,7 +279,7 @@ End with: "Review every line before submitting. You know your own experience bet
 
 Matches `/score-resume`
 
-```
+```text
 You are an expert ATS analyst and hiring consultant. Score how well my resume matches a specific job description, identify exactly what is missing or weak, and give me a clear action plan.
 
 Start by asking for both in one message:
@@ -356,7 +356,7 @@ Ask: "Would you like me to rewrite this resume fully for this role, rewrite just
 
 Matches `/cold-email`
 
-```
+```text
 Help me write a cold email or LinkedIn message to a hiring manager or recruiter that gets read and responded to.
 
 The goal is not to be impressive. The goal is to be specific, brief, and easy to respond to.
@@ -407,7 +407,7 @@ Also write a short follow-up version (2 sentences) for if there is no response i
 
 Matches `/pre-submit`
 
-```
+```text
 Run me through a final checklist before I submit a job application. Catch anything that could quietly disqualify my application before a human ever reads it.
 
 Start by asking: "Which role and company are you about to apply to? Do you have the tailored resume and cover letter ready?"
@@ -447,4 +447,96 @@ FINAL CHECK
 Ask me: "Is there anything about this application that felt uncertain or off to you?"
 If yes, address it before I submit.
 If everything passes, confirm: "You are clear to submit. Good luck, and follow up in 5-7 days."
+```
+
+---
+
+## Prompt 7: Prepare for My Interview
+
+Matches `/prep-interview`
+
+```text
+You are an expert technical interviewer and career coach. Prepare me for a specific upcoming interview using my actual resume and the actual job description — not generic questions.
+
+Every question you generate must be traceable to a specific claim on my resume, a requirement in the JD, or a gap between the two. Do not write model answers — a coaching note per question is enough.
+
+CRITICAL RULES:
+- Total questions across all sections: 12 to 18. Quality over volume.
+- Never generate questions that could apply to any candidate.
+- Flag skill gaps honestly. Do not soften mismatches.
+- Calibrate technical depth to the seniority level I provide.
+
+PHASE 1 — Gather inputs
+Ask me for all three of these in one message before generating anything:
+1. My tailored resume (the version I submitted for this role)
+2. The full job description
+3. The seniority level of this role (junior / mid / senior / lead / staff / principal / manager / people-manager)
+
+PHASE 2 — Analyse silently before generating
+Before writing any questions, extract:
+- Every claim, metric, technology, and tool on my resume
+- Every required and preferred skill, tool, and responsibility in the JD
+- Gaps: things the JD requires that are absent or understated on my resume
+- The core technical or professional domain of the role
+- Seniority calibration:
+  - Junior: concept understanding
+  - Mid: applied, practical usage
+  - Senior: design decisions and trade-offs
+  - Lead / Staff / Principal: system-level thinking, team impact, cross-functional influence
+  - Manager / People-Manager: team leadership, hiring and coaching, execution planning, stakeholder communication, cross-functional delivery
+
+Do not show this analysis to me. Use it only to generate targeted questions.
+
+PHASE 3 — Generate interview questions
+
+SECTION 1 — Resume challenge questions (4 to 6 questions)
+Drill into specific claims, achievements, numbers, and technologies I listed.
+- If I stated a metric, ask how it was measured or what the biggest obstacle was.
+- If I listed a tool, ask a follow-up that reveals whether I actually used it deeply.
+
+Format each as:
+Q: [question]
+Coaching note: [one sentence on what the interviewer is testing and what a strong answer covers]
+
+SECTION 2 — Technical questions (4 to 6 questions)
+Test depth of knowledge on the core technologies and concepts central to this role.
+- Do not ask surface-level definitions. Ask applied, scenario-based, or trade-off questions.
+- Calibrate to my seniority level.
+- For non-technical roles, replace with domain knowledge questions at the same depth.
+
+Format each as:
+Q: [question]
+Coaching note: [one sentence on what the interviewer is testing and what a strong answer covers]
+
+SECTION 3 — Gap questions (2 to 4 questions, only if genuine gaps exist)
+Questions likely to arise from mismatches between my resume and the JD.
+- Only include this section if real gaps exist. If there are none, skip it entirely.
+- Name the gap plainly. Give me a framework to address it honestly without undermining my candidacy.
+
+Format each as:
+Q: [question]
+Gap flagged: [name the mismatch]
+Coaching note: [how to address this gap honestly]
+
+SECTION 4 — Role-fit and behavioural questions (3 to 4 questions)
+Derived from specific signals in the JD: team structure, pace, ownership, mentoring, ambiguity, stakeholder management.
+- Not generic. Every question must reflect something this role specifically requires.
+
+Format each as:
+Q: [question]
+Coaching note: [what the interviewer is probing for and what a strong STAR-structured answer covers]
+
+PHASE 4 — Readiness summary
+After all questions, give me a short snapshot:
+
+Strongest areas based on my resume and this JD:
+- [2 to 3 specific strengths]
+
+Areas to prepare most carefully:
+- [2 to 3 specific things to review or practise]
+
+One thing to research before I walk in:
+- [something about the company, team, or product that will make my answers more specific]
+
+Then ask: "Would you like me to help you research the company more deeply, or run a mock interview where I ask these questions one at a time and coach your answers?"
 ```
