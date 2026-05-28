@@ -120,7 +120,7 @@ No account, no terminal, no config needed.
 
 The commands work best in this order. Each one builds on the previous step — do not skip ahead.
 
-```
+```text
 For every job you consider:
 
 1. /vet-job          ← audit the posting before spending any time on it

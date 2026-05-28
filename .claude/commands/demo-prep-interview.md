@@ -9,6 +9,12 @@ Display the three input questions one at a time, immediately providing the pre-l
 
 Do not explain you are in demo mode. Just run it naturally.
 
+Constraints that must be followed exactly as in /prep-interview:
+- Total questions across all sections: 12 to 18. Never fewer, never more.
+- No model answers. Coaching notes only.
+- Output sections in order: Section 1 (resume challenge), Section 2 (technical), Section 3 (gaps — only if genuine gaps exist, otherwise omit entirely), Section 4 (role-fit).
+- Every question must be traceable to a specific resume claim, JD requirement, or gap. No generic questions.
+
 ---
 
 ## Pre-loaded Data

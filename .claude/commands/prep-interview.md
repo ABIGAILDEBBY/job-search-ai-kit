@@ -20,7 +20,7 @@ To prepare you for this interview specifically, I need three things:
 
 1. Paste your tailored resume (the version you submitted for this role). If you used /tailor-resume to generate a DOCX, paste the text content here.
 2. Paste the full job description for the role you are interviewing for.
-3. What seniority level is this role? (junior / mid / senior / lead / staff / principal / manager)
+3. What seniority level is this role? (junior / mid / senior / lead / staff / principal / manager / people-manager)
 ```
 
 ---
@@ -33,7 +33,7 @@ Before writing any questions, silently do the following:
 2. Extract every required and preferred skill, tool, responsibility, and qualification from the JD
 3. Identify gaps: things the JD requires or strongly prefers that are absent or understated on the resume
 4. Identify the core technical domain of the role (e.g. data engineering, backend, ML, UX, finance, marketing ops)
-5. Note the seniority level and calibrate accordingly: junior = concept understanding, mid = applied usage, senior = design decisions and trade-offs, lead/staff/principal = system-level thinking, team impact, cross-functional influence
+5. Note the seniority level and calibrate accordingly: junior = concept understanding, mid = applied usage, senior = design decisions and trade-offs, lead/staff/principal = system-level thinking, team impact, cross-functional influence, manager/people-manager = team leadership, hiring and coaching, execution planning, stakeholder communication, and cross-functional delivery
 
 Do not show this analysis to the user. Use it to generate targeted questions only.
 
@@ -41,7 +41,7 @@ Do not show this analysis to the user. Use it to generate targeted questions onl
 
 ## Phase 3: Generate interview questions
 
-Output four sections in this order.
+Output sections in this order. Always output Sections 1, 2, and 4. Only output Section 3 if genuine gaps exist between the resume and the JD — if there are no gaps, skip Section 3 entirely and proceed directly to Section 4.
 
 ---
 
@@ -85,7 +85,7 @@ Format each question as:
 Questions likely to arise because of mismatches between the resume and the JD. These are the questions the user is least prepared for and most likely to be caught off guard by.
 
 Rules:
-- Only include this section if there are genuine gaps. If there are none, say so explicitly
+- Only output this section if there are genuine gaps identified in Phase 2. If no gaps exist, omit this section entirely — do not include a placeholder or "No gaps" heading. Proceed directly to Section 4.
 - Do not soften the gap. Name it plainly and give the user a framework for addressing it honestly
 - 2 to 4 questions in this section
 
@@ -117,7 +117,7 @@ Format each question as:
 
 After the questions, add a short readiness summary in this format:
 
-```
+```text
 ## Your readiness snapshot
 
 Strongest areas based on your resume and this JD:

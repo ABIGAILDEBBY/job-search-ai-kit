@@ -50,7 +50,7 @@ case $Q in
 
 5b) TEXT="At BuildStack:
 - Built and maintained REST APIs serving 180,000 monthly active users using Python FastAPI and PostgreSQL.
-- Led a Kubernetes migration from EC2 deployments. We hit 99.97% uptime and cut infrastructure spend by $40,000 per year through autoscaling and right-sizing.
+- Led a Kubernetes migration from EC2 deployments. We hit 99.97% uptime and cut infrastructure spend by \$40,000 per year through autoscaling and right-sizing.
 - Designed a webhook delivery system with retry logic and dead-letter queues. Delivery success rate went from 91% to 99.6%.
 - Wrote Terraform modules for AWS environment provisioning. Cut environment setup time from 3 days to 2 hours.
 - Parallelized the test suite — runtime went from 18 minutes to 4 minutes." ;;

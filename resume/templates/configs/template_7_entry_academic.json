@@ -1,5 +1,5 @@
 {
-  "_description": "Entry Academic — designed for students and candidates with under 2 years of experience. Education section leads. Dark shaded section headings with white text create clear visual hierarchy without relying on color in body text. One page optimised. Research: 82% of organisations use ATS even for entry-level roles (Enhancv 2025), so this template remains ATS-safe despite the shaded headings. Inline skill categories signal technical literacy despite limited work history.",
+  "_description": "Entry Academic — designed for students and candidates with under 2 years of experience. Education section leads. Dark shaded section headings with white text create clear visual hierarchy without relying on color in body text. One page optimised. Note: shaded heading backgrounds can be unreliable with some ATS parsers — heading text remains selectable and in the document body, which preserves parseability for most systems. Inline skill categories signal technical literacy despite limited work history.",
   "_edit_instructions": "Change heading_fill_color to change the section heading background. heading_text_color should stay FFFFFF (white) unless you choose a very light fill. All values are 6-digit hex without the # symbol.",
 
   "name": "Entry Academic",
@@ -39,5 +39,6 @@
   "skills_format": "inline_categories",
   "contact_separator": "  |  ",
   "show_target_role_subtitle": false,
-  "education_first": true
+  "education_first": true,
+  "include_competencies_band": false
 }

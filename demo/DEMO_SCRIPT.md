@@ -40,7 +40,7 @@ Type `/vet-job` in Claude Code. When asked, paste the full contents of `demo/sam
 
 **What to watch for (these make great screen moments):**
 - The ghost job check running (shows the kit is thinking critically, not just summarizing)
-- The skills alignment table comparing Alex's profile to the JD requirements
+- The skills alignment table comparing Amaka's profile to the JD requirements
 - The final recommendation (should be "Apply" for this JD — it is a strong match)
 
 **What to say:**
