@@ -116,6 +116,44 @@ No account, no terminal, no config needed.
 
 ---
 
+## Recommended workflow
+
+The commands work best in this order. Each one builds on the previous step — do not skip ahead.
+
+```
+For every job you consider:
+
+1. /vet-job          ← audit the posting before spending any time on it
+                        catches ghost jobs, visa blockers, and skills gaps early
+
+2. /check-remote     ← only if the role is listed as remote
+                        verifies whether "remote" is genuine or geographically restricted
+
+3. /research-company ← deep-vet the company before investing hours in your application
+                        funding, culture, red flags, engineer sentiment
+
+4. /tailor-resume    ← rewrite your resume specifically for this role and company
+                        generates a formatted DOCX ready to submit
+
+5. /score-resume     ← check your ATS match score before submitting
+                        tells you exactly what to fix if the score is too low
+
+6. /cold-email       ← optional: reach out to the hiring manager directly
+                        use this alongside or instead of the standard apply button
+
+7. /pre-submit       ← final checklist before you hit apply
+                        catches the things you miss when you are in a rush
+
+--- after you get the interview ---
+
+8. /prep-interview   ← generate targeted questions from your actual resume and this JD
+                        not generic prep — specific to what you claimed and what they need
+```
+
+> The most common mistake is jumping straight to `/tailor-resume` without vetting the job first. A great resume sent to a ghost job or a visa-blocked role is wasted time.
+
+---
+
 ## Folder structure
 
 ```
