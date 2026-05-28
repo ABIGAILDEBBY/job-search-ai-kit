@@ -147,8 +147,8 @@ Build sections in this exact order (Education leads if student or Template 7):
 ### 1. Header
 Name (large), then on the line below: email (clickable mailto:), phone (clickable tel:), LinkedIn shown as "LinkedIn Profile" (hyperlinked), GitHub shown as "GitHub Portfolio" (hyperlinked, only if provided), portfolio shown as "Portfolio" (hyperlinked, only if provided), location (city and country only).
 
-For Template 5 (Creative Accent): portfolio URL goes first in the contact line, before email.
-For Template 8 (Executive Strategic): add a subtitle line with the target role title under the name.
+For Template 5 (Creative Accent): portfolio URL goes first in the contact line, before email. Add a subtitle line with the target role title under the name when `show_target_role_subtitle` is true.
+For Template 8 (Executive Strategic): add a subtitle line with the target role title under the name when `show_target_role_subtitle` is true.
 
 ### 2. Professional Summary, Objective, or Executive Positioning Statement
 - Students / under 2 years: Objective Statement
@@ -174,7 +174,7 @@ For each role:
 
 ### 6. Skills
 Use inline category format for all templates (ATS-safe, information-dense, no table required):
-```
+```text
 Technical Skills:  Python, SQL, dbt, Spark, Airflow, GCP, BigQuery
 Frameworks:        TensorFlow, PyTorch, FastAPI, React
 Professional Skills:  Cross-functional collaboration, stakeholder communication, agile delivery
@@ -391,7 +391,8 @@ def build_resume(doc, data, cfg):
     # ── Section heading factory ────────────────────────────────────────────────
     def add_heading(text):
         p = doc.add_paragraph()
-        p.alignment = WD_ALIGN_PARAGRAPH.LEFT
+        alignment_val = cfg.get("heading_alignment", "left")
+        p.alignment = WD_ALIGN_PARAGRAPH.CENTER if alignment_val == "center" else WD_ALIGN_PARAGRAPH.LEFT
         p.paragraph_format.space_before = Pt(cfg["space_before_heading_pt"])
         p.paragraph_format.space_after  = Pt(cfg["space_after_heading_pt"])
 
@@ -429,6 +430,7 @@ def build_resume(doc, data, cfg):
             run.font.bold   = bold
             run.font.italic = italic
             run.font.name   = cfg["font_body"]
+            run.font.color.rgb = hex_to_rgb(cfg["color_body"])
         return p
 
     # ── Bullet factory ─────────────────────────────────────────────────────────
@@ -440,6 +442,7 @@ def build_resume(doc, data, cfg):
         run = p.add_run(text)
         run.font.size = Pt(cfg["font_size_bullet"])
         run.font.name = cfg["font_body"]
+        run.font.color.rgb = hex_to_rgb(cfg["color_body"])
         return p
 
     # ── Section renderers ──────────────────────────────────────────────────────
@@ -505,8 +508,9 @@ def build_resume(doc, data, cfg):
 
     def render_skills():
         ts = data.get("technical_skills")
+        fw = data.get("frameworks")
         ps = data.get("professional_skills")
-        if not ts and not ps:
+        if not ts and not fw and not ps:
             return
         add_heading("Skills")
         tech_label = data.get("skills_label", "Technical Skills")
@@ -520,6 +524,18 @@ def build_resume(doc, data, cfg):
             r2 = p.add_run(ts)
             r2.font.name = cfg["font_body"]
             r2.font.size = Pt(cfg["font_size_body"])
+            r2.font.color.rgb = hex_to_rgb(cfg["color_body"])
+        if fw:
+            p = doc.add_paragraph()
+            p.paragraph_format.space_after = Pt(cfg["space_after_body_pt"])
+            r = p.add_run("Frameworks:  ")
+            r.font.bold = True
+            r.font.name = cfg["font_body"]
+            r.font.size = Pt(cfg["font_size_body"])
+            r2 = p.add_run(fw)
+            r2.font.name = cfg["font_body"]
+            r2.font.size = Pt(cfg["font_size_body"])
+            r2.font.color.rgb = hex_to_rgb(cfg["color_body"])
         if ps:
             p = doc.add_paragraph()
             p.paragraph_format.space_after = Pt(cfg["space_after_body_pt"])
@@ -530,6 +546,7 @@ def build_resume(doc, data, cfg):
             r2 = p.add_run(ps)
             r2.font.name = cfg["font_body"]
             r2.font.size = Pt(cfg["font_size_body"])
+            r2.font.color.rgb = hex_to_rgb(cfg["color_body"])
 
     def render_certifications():
         if not data.get("certifications"):
