@@ -8,20 +8,20 @@ Fill in your profile once. Every command in this kit will use it.
 ## Your Profile
 
 ```
-NAME:
-CURRENT ROLE:
-CURRENT LOCATION (city, country):
-TARGET ROLE(S):
-TARGET INDUSTRIES:
-SALARY EXPECTATION (range + currency):
-WORK AUTHORIZATION: (e.g. "Open to work in US, UK, EU, need sponsorship" or "Ghana-based, seeking fully remote only")
+NAME: Abigail Woolley
+CURRENT ROLE:Data Engineer
+CURRENT LOCATION (city, country): Ghana
+TARGET ROLE(S): Microsoft Fabric Data Engineer 
+TARGET INDUSTRIES: Any
+SALARY EXPECTATION (range + currency):3000 - 5000 $
+WORK AUTHORIZATION: (e.g. "Open to work in US, UK, EU, need sponsorship" or "Ghana-based, seeking fully remote only") Fully remote (Open to Work all countries where I am authorised to work remotely) or onsite in Developed Countries. In this case salary range increases to 8000 - 12000 $ to do onsite.
 PREFERRED TIME ZONES TO OVERLAP WITH:
-YEARS OF EXPERIENCE:
-KEY SKILLS (comma separated):
-EDUCATION:
+YEARS OF EXPERIENCE:6, GMT 00 - GMT + or - 4.
+KEY SKILLS (comma separated): Data Engineering, Data Analysis, Python Programming, SQL, Spark, Data Cleaning, ETL, ELT, Research Skills, Product Engineering, AI tools, Microsoft Fabric, Microsoft Azure, 
+EDUCATION: University of Ghana Bachelors of Science in Computer Science, Carnegie Mellon University Masters of Science in Information Technology (Concentration in Data Science and Applied Machine Learning).
 RESUME FILE: resume/base-resume.md
-LINKEDIN URL:
-PORTFOLIO/GITHUB URL:
+LINKEDIN URL:https://www.linkedin.com/in/abigail-woolley/
+PORTFOLIO/GITHUB URL:https://github.com/ABIGAILDEBBY
 ```
 
 ---
