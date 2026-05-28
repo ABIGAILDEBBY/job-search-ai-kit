@@ -38,6 +38,7 @@ This project comes with a set of slash commands. Type `/` in Claude Code to see 
 | `/tailor-resume` | Match your resume to a specific job description |
 | `/cold-email` | Write a cold outreach email to a hiring manager |
 | `/pre-submit` | Final checklist before you hit apply |
+| `/prep-interview` | Generate targeted interview questions from your actual resume and the JD |
 
 > Not using Claude Code? See `/prompts/README.md` for plain copy-paste versions of every command.
 

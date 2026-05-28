@@ -7,7 +7,7 @@
 *A Claude-powered workspace for tech and data professionals navigating international job searches*
 
 [![Powered by Claude](https://img.shields.io/badge/Powered%20by-Claude%20AI-E8611A?style=for-the-badge&logoColor=white)](https://claude.ai)
-[![Slash Commands](https://img.shields.io/badge/Slash%20Commands-7%20built--in-16B2B2?style=for-the-badge)](https://github.com/ABIGAILDEBBY/job-search-ai-kit/tree/main/.claude/commands)
+[![Slash Commands](https://img.shields.io/badge/Slash%20Commands-8%20built--in-16B2B2?style=for-the-badge)](https://github.com/ABIGAILDEBBY/job-search-ai-kit/tree/main/.claude/commands)
 [![Article Series](https://img.shields.io/badge/Article%20Series-24%20articles-FFC857?style=for-the-badge)](https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7461467553941532672)
 [![License](https://img.shields.io/badge/License-MIT-lightgrey?style=for-the-badge)](LICENSE)
 
@@ -104,10 +104,53 @@ No account, no terminal, no config needed.
       <td>Final checklist before you hit apply</td>
       <td>Every single time</td>
     </tr>
+    <tr>
+      <td><code>/prep-interview</code></td>
+      <td>Targeted interview questions from your actual resume and the JD</td>
+      <td>As soon as you get an interview</td>
+    </tr>
   </tbody>
 </table>
 
 > More commands will be added as the article series progresses.
+
+---
+
+## Recommended workflow
+
+The commands work best in this order. Each one builds on the previous step — do not skip ahead.
+
+```text
+For every job you consider:
+
+1. /vet-job          ← audit the posting before spending any time on it
+                        catches ghost jobs, visa blockers, and skills gaps early
+
+2. /check-remote     ← only if the role is listed as remote
+                        verifies whether "remote" is genuine or geographically restricted
+
+3. /research-company ← deep-vet the company before investing hours in your application
+                        funding, culture, red flags, engineer sentiment
+
+4. /tailor-resume    ← rewrite your resume specifically for this role and company
+                        generates a formatted DOCX ready to submit
+
+5. /score-resume     ← check your ATS match score before submitting
+                        tells you exactly what to fix if the score is too low
+
+6. /cold-email       ← optional: reach out to the hiring manager directly
+                        use this alongside or instead of the standard apply button
+
+7. /pre-submit       ← final checklist before you hit apply
+                        catches the things you miss when you are in a rush
+
+--- after you get the interview ---
+
+8. /prep-interview   ← generate targeted questions from your actual resume and this JD
+                        not generic prep — specific to what you claimed and what they need
+```
+
+> The most common mistake is jumping straight to `/tailor-resume` without vetting the job first. A great resume sent to a ghost job or a visa-blocked role is wasted time.
 
 ---
 
