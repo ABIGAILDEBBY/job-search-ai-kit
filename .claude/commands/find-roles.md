@@ -89,11 +89,11 @@ Format as a numbered checklist of yes/no questions they can answer by skimming t
 
 Every question must be answerable by a quick skim of the job description. No deep research at this stage. The goal is to filter a list of 20 postings down to 3 to 5 worth running /vet-job on.
 
-Always include the following two checks regardless of role category:
+The numbered checklist must always include these two checks as numbered items, regardless of role category:
 
-**Posting date:** Is the posting less than 4 weeks old? If yes, proceed. If no, flag it — postings older than 30 days with no repost are a ghost job signal worth noting before investing further time.
+1. Is the posting less than 4 weeks old? If yes, proceed. If no, flag it — postings older than 30 days with no repost are a ghost job signal worth noting before investing further time.
 
-**Salary transparency:** Does the posting include a salary range or compensation band? If yes, treat it as a signal of process maturity. If no, note it — companies that omit salary at the posting stage often introduce mismatches late in the process, which is a time cost for the applicant. This does not disqualify the role, but it changes how cautiously to proceed.
+2. Does the posting include a salary range or compensation band? If yes, treat it as a signal of process maturity. If no, note it — companies that omit salary at the posting stage often introduce mismatches late in the process, which is a time cost for the applicant. This does not disqualify the role, but it changes how cautiously to proceed.
 
 ---
 
