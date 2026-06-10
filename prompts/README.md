@@ -1,8 +1,63 @@
 # Plain Prompts: For claude.ai Users
 
-No Claude Code? No problem. Copy any prompt below and paste it into claude.ai. Each one replicates the full logic of the matching slash command.
+If you have not set up Claude Code yet or prefer working in the browser, copy any prompt below and paste it into claude.ai. Each one replicates the full logic of the matching slash command.
 
 They will ask you questions first, then help you. That is intentional — the more context you give, the better the output.
+
+---
+
+## Prompt 0: Find Roles That Match Your Skills
+
+Matches `/find-roles`
+
+```text
+Help me find job roles that genuinely match my specific skill set, not just my target job title. The problem I am trying to solve: when I search by title I get noisy results where many postings share the title but require completely different skills. I want to find the right postings before investing time in any of them.
+
+Start by asking me all of these in one message:
+1. What role category or job title am I targeting? (e.g. data engineering, network security, product design)
+2. What are my key skills, tools, and technologies? (I will paste them or describe them)
+3. Are there skills commonly associated with this title that I do NOT have and want to avoid roles that require them?
+
+Then run every section below.
+
+SECTION 1 — Skill fingerprint
+Identify 4 to 6 specific phrases, requirements, or tool combinations that would appear in a job description to confirm this posting is genuinely aligned with my skill set. These are the signals that tell me: this role is actually built for someone like me.
+
+Format as:
+Look for these in any [role category] posting:
+- [Phrase or requirement] — why it signals a genuine match: [one line]
+(repeat for each)
+
+Be specific. Not "Python experience" but "Python + Airflow for pipeline orchestration" if that matches my profile.
+
+SECTION 2 — Mismatch signals
+Identify 4 to 6 phrases or requirements that appear in postings under the same title but signal a completely different skill set from mine. These let me disqualify a posting in under 30 seconds.
+
+Format as:
+Skip or deprioritise postings that lead with:
+- [Phrase or requirement] — what it actually signals: [one line on why this is a mismatch]
+(repeat for each)
+
+SECTION 3 — Boolean search strings
+Generate 4 to 6 Boolean search strings I can paste directly into LinkedIn Jobs, Indeed, or Google Jobs, optimised for my specific skill combination, not just the job title.
+
+Include:
+- One broad string for maximum coverage
+- One tight string for high-precision matching using my strongest skills
+- One string using adjacent or alternative role titles
+After each string, add one line on what type of results it returns and when to use it.
+
+SECTION 4 — Adjacent role titles worth searching
+List 4 to 6 alternative or adjacent job titles that match my actual skill set but may not appear in a standard search for my primary target title. For each, explain in one line why it is relevant to my profile and where it tends to appear.
+
+SECTION 5 — 30-second pre-screen checklist
+Give me a fast, repeatable scan I can apply to any posting before deciding whether to do a full company and job audit. Format as 5 to 7 yes/no questions answerable by skimming the JD in under 30 seconds. The goal is to filter a list of 20 postings down to 3 to 5 worth pursuing further.
+
+SECTION 6 — Where to search
+Recommend the 3 to 4 most effective platforms for finding these specific roles given my background and location. For each platform, give one specific tip for getting better results — not generic advice, something specific to my role category and situation.
+
+Close with: "You now have everything you need to build a targeted shortlist. Run this search, apply the 30-second pre-screen to each result, and bring the strongest 3 to 5 to a full audit."
+```
 
 ---
 
@@ -116,44 +171,71 @@ Then offer: "Would you like me to run the full job audit on this posting?"
 Matches `/research-company`
 
 ```text
-Help me vet a company before I invest time in their application process.
+Help me run a thorough 5-check company audit before I invest time in an application. This is not a surface check. Run every section below in order and be direct. Do not soften concerns.
 
-Start by asking me:
+Start by asking me all of these in one message:
 1. The company name and website
-2. Whether I have already spoken to anyone there, or whether this is pre-application research
-3. Whether anything specific made me hesitate about this company
+2. The role I am considering and how long the posting has been live
+3. Where I am based and whether I need the company to hire internationally
+4. Whether anything specific made me hesitate about this company
 
-Then work through every section below.
+CHECK 1 — Is the role actually real?
+Ghost jobs stay live because no one removes them. Help me run through:
+- Is the posting older than 6 weeks with no repost or update?
+- Can I find anyone on LinkedIn who was recently hired into this team? (Search company + filter by Past 1 year + target department)
+- Is the same role posted under multiple slightly different titles?
+- Does this company have a pattern of roles that never close?
+Tell me clearly: "This role shows [X] ghost job signals" or "No ghost job signals detected."
 
-SECTION 1 — Company basics
-Ask me to confirm: industry and what the company actually does (in plain terms), company size (headcount), stage (public / private / startup / scaleup / enterprise / nonprofit), founded year, headquarters location.
+CHECK 2 — Financial health
+Walk me through checking:
+- Crunchbase: last funding round, amount raised, date. Flag if last round was 18+ months ago for an early-stage company.
+- LinkedIn company page: headcount trend over 24 months. Flag if headcount is shrinking while they are actively hiring.
+- Layoffs.fyi: is this company on the list in the last 12 months? If yes, which teams were affected?
+- News search: "[Company name] layoffs 2024" or "[Company name] funding 2025"
+Summarise: "The company's financial position appears [stable / uncertain / concerning] because [reason]."
 
-SECTION 2 — Financial health signals
-For public companies: ask me to check recent earnings reports or news for layoffs, revenue decline, leadership changes, or strategic pivots.
-For private companies: ask if I can find funding history on Crunchbase or LinkedIn. Flag if the last round was 3+ years ago with no news. Flag any recent mass layoffs.
+CHECK 3 — What employees actually say
+Guide me through:
+- Glassdoor: most recent reviews (not the average rating). Look for patterns across multiple reviews, not single opinions. Does the company respond to negative reviews?
+- LinkedIn: average tenure of people in the target role. If under 12 months for a role marketed as a growth opportunity, flag it. Where did former employees go next?
+- Blind (for tech roles): search the company name. Use it as raw signal, not gospel.
+Summarise the pattern in plain terms.
 
-SECTION 3 — Remote and distributed work culture
-Ask me to go to the company LinkedIn page and click "People."
-I should look at: where most employees are located, whether there are team members in my region or time zone, and whether the company has listed any remote-focused roles.
-Interpret the data for me: if 80%+ are in one location, the company is likely office-first regardless of the job posting.
+CHECK 4 — How they treat people during hiring
+Ask me:
+- Has anyone in my network interviewed here recently?
+- Are there Glassdoor reviews specifically about the interview process?
+Flag if present: interview process that changed mid-way, unpaid work tasks disproportionate to the role, inconsistency between recruiter and job description, recruiter who cannot answer basic questions about the team.
 
-SECTION 4 — Glassdoor and employee signals
-Ask me to search "[company name] remote work" on Glassdoor.
-Guide me to look for: overall rating trend (improving or declining), reviews mentioning remote/flexible/distributed/micromanagement/autonomy, CEO approval rating, and whether the company responds to reviews.
+CHECK 5 — Does the company actually hire internationally?
+Run this check if I am based outside the US, UK, EU, or Canada.
+- Search the company on LinkedIn filtered by my country. If zero results, name that.
+- Check whether past postings from this company mentioned work authorisation requirements.
+- Do they use international payroll tools like Remote.com, Deel, Papaya Global, or Oyster? If yes, they are structured for global hiring.
+- Does the application form include my country in the location dropdown?
+Tell me clearly: "This company [appears set up for international hiring / has no visible international team members / has restrictions that may block your application]."
 
-SECTION 5 — Leadership and hiring signals
-- Has there been recent C-suite or VP-level turnover? (check LinkedIn)
-- Is the company actively hiring across many departments or only in one area?
-- Are there roles posted for 90+ days? (signals a hiring freeze or internal issues)
+WALK AWAY IMMEDIATELY IF:
+Check for each and flag explicitly if found:
+- On Layoffs.fyi in the last 6 months and the target team was affected
+- Same Glassdoor complaint repeated across different years (that is a pattern, not an opinion)
+- Job description is clearly a copy-paste template with no team or tool specifics
+- Application asks for salary history before any conversation
+- Role reposted 3+ times in the last year with no description changes
 
-SECTION 6 — Red flags and green flags
-List up to 3 green flags and up to 3 red flags based on everything gathered.
+PAUSE AND ASK QUESTIONS IF:
+- No Crunchbase funding activity in 18+ months for an early-stage company
+- Average LinkedIn tenure in the target role is under one year
+- Recruiter cannot confirm who I would report to
+- Remote policy says "remote-friendly" or "flexible location" rather than fully remote
 
-SECTION 7 — Questions to ask the recruiter
-Based on what we found, generate 3 to 5 targeted questions I should ask in the first recruiter call. Make them specific to this company, not generic.
+RECRUITER QUESTIONS
+Based on what we found, generate 4 to 6 targeted questions I should ask in the first recruiter call. Every question must be specific to this company and situation. Format as: [Question] — why to ask it: [one-line reason]
 
 FINAL SUMMARY
-Close with: "Overall, this company appears [low risk / worth pursuing with caution / high risk] for the following reasons: [2-3 sentences]."
+Close with: "Overall, this company appears [low risk / worth pursuing with caution / high risk] for the following reasons: [2 to 3 sentences]."
+Estimated time to run this audit properly: 25 to 35 minutes.
 ```
 
 ---

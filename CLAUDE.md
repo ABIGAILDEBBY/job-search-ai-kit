@@ -8,20 +8,20 @@ Fill in your profile once. Every command in this kit will use it.
 ## Your Profile
 
 ```
-NAME: Abigail Woolley
-CURRENT ROLE:Data Engineer
-CURRENT LOCATION (city, country): Ghana
-TARGET ROLE(S): Microsoft Fabric Data Engineer 
-TARGET INDUSTRIES: Any
-SALARY EXPECTATION (range + currency):3000 - 5000 $
-WORK AUTHORIZATION: (e.g. "Open to work in US, UK, EU, need sponsorship" or "Ghana-based, seeking fully remote only") Fully remote (Open to Work all countries where I am authorised to work remotely) or onsite in Developed Countries. In this case salary range increases to 8000 - 12000 $ to do onsite.
-PREFERRED TIME ZONES TO OVERLAP WITH:
-YEARS OF EXPERIENCE:6, GMT 00 - GMT + or - 4.
-KEY SKILLS (comma separated): Data Engineering, Data Analysis, Python Programming, SQL, Spark, Data Cleaning, ETL, ELT, Research Skills, Product Engineering, AI tools, Microsoft Fabric, Microsoft Azure, 
-EDUCATION: University of Ghana Bachelors of Science in Computer Science, Carnegie Mellon University Masters of Science in Information Technology (Concentration in Data Science and Applied Machine Learning).
-RESUME FILE: resume/base-resume.md
-LINKEDIN URL:https://www.linkedin.com/in/abigail-woolley/
-PORTFOLIO/GITHUB URL:https://github.com/ABIGAILDEBBY
+NAME: Amaka Jenkins
+CURRENT ROLE: Backend Software Engineer
+CURRENT LOCATION: Lagos, Nigeria
+TARGET ROLE(S): Senior Backend Engineer, Staff Backend Engineer, Platform Engineer
+TARGET INDUSTRIES: Fintech, Developer Tools, SaaS, Cloud Infrastructure
+SALARY EXPECTATION: $90,000 - $130,000 USD
+WORK AUTHORIZATION: Nigerian-based, seeking fully remote only, open to contract or full-time, no sponsorship needed for remote roles
+PREFERRED TIME ZONES TO OVERLAP WITH: UTC, UTC+1, EST (flexible)
+YEARS OF EXPERIENCE: 5
+KEY SKILLS: Python, Go, PostgreSQL, Redis, Kafka, Docker, Kubernetes, AWS (EC2, RDS, Lambda, S3), REST APIs, gRPC, microservices, CI/CD, GitHub Actions, Terraform
+EDUCATION: BSc Computer Science, University of Lagos, 2020
+RESUME FILE: demo/base-resume.md
+LINKEDIN URL: https://www.linkedin.com/in/amaka-jenkins/
+PORTFOLIO/GITHUB URL: https://github.com/amaka-jenkins
 ```
 
 ---
@@ -32,15 +32,17 @@ This project comes with a set of slash commands. Type `/` in Claude Code to see 
 
 | Command | What it does |
 |---|---|
+| `/find-roles` | Skill-first job discovery — find roles that match your actual skills, not just your target title |
 | `/vet-job` | Full audit of a job posting before you apply |
 | `/check-remote` | Verify if a "remote" job is actually remote |
 | `/research-company` | Deep-vet a company before you invest time |
 | `/tailor-resume` | Match your resume to a specific job description |
+| `/score-resume` | ATS match score with a full action plan |
 | `/cold-email` | Write a cold outreach email to a hiring manager |
 | `/pre-submit` | Final checklist before you hit apply |
-| `/prep-interview` | Generate targeted interview questions from your actual resume and the JD |
+| `/prep-interview` | Targeted interview questions from your resume and the JD |
 
-> Not using Claude Code? See `/prompts/README.md` for plain copy-paste versions of every command.
+> Not using Claude Code? See `prompts/README.md` for plain copy-paste versions of every command.
 
 ---
 
@@ -48,20 +50,23 @@ This project comes with a set of slash commands. Type `/` in Claude Code to see 
 
 ```
 job-search-ai-kit/
-├── CLAUDE.md                  ← this file, your search profile
-├── README.md                  ← setup guide for new users
+├── CLAUDE.md                  ← your search profile (fill this in first)
+├── README.md                  ← setup guide and recommended workflow
+├── demo/                      ← sample profile and resume for testing
+│   ├── CLAUDE.md              ← sample profile (Amaka Jenkins, Backend Engineer)
+│   ├── base-resume.md         ← sample resume
+│   └── sample-job.md          ← sample job description for testing
 ├── .claude/commands/          ← slash commands (Claude Code only)
 ├── jobs/                      ← one file per job you are tracking
-│   └── _template.md
 ├── resume/
 │   ├── base-resume.md         ← your master resume (paste it here)
 │   └── tailored/              ← JD-specific versions go here
-├── cover-letters/             ← drafts per application
-├── companies/                 ← research notes per company
+├── cover-letters/
+├── companies/
 ├── applications/
-│   └── tracker.md             ← status tracker for all applications
+│   └── tracker.md
 └── prompts/
-    └── README.md              ← plain prompts for claude.ai users
+    └── README.md
 ```
 
 ---
@@ -70,6 +75,6 @@ job-search-ai-kit/
 
 - Always read this file before running any command.
 - When the user pastes a job description, extract: company name, role title, location, remote status, required skills, and work authorization requirements.
-- When tailoring a resume, never fabricate experience. Only reframe and reorder real experience from `resume/base-resume.md`.
+- When tailoring a resume, never fabricate experience. Only reframe and reorder real experience from `demo/base-resume.md`.
 - When vetting a job, always ask clarifying questions if key information is missing from the posting.
 - Flag any mismatch between the user's profile above and the job requirements clearly before proceeding.
