@@ -81,13 +81,19 @@ For each, explain in one line why it is relevant to their profile and where it t
 
 Give the user a fast, repeatable scan they can apply to any posting before deciding whether to run /vet-job on it.
 
-Format as a numbered checklist of 5 to 7 yes/no questions they can answer by skimming the JD in under 30 seconds:
+Format as a numbered checklist of yes/no questions they can answer by skimming the JD in under 30 seconds:
 
 1. [Question] — if yes, proceed. If no, [what to do].
 2. [Question] — if yes, proceed. If no, [what to do].
 (continue)
 
 Every question must be answerable by a quick skim of the job description. No deep research at this stage. The goal is to filter a list of 20 postings down to 3 to 5 worth running /vet-job on.
+
+The numbered checklist must always include these two checks as numbered items, regardless of role category:
+
+1. Is the posting less than 4 weeks old? If yes, proceed. If no, flag it — postings older than 30 days with no repost are a ghost job signal worth noting before investing further time.
+
+2. Does the posting include a salary range or compensation band? If yes, treat it as a signal of process maturity. If no, note it — companies that omit salary at the posting stage often introduce mismatches late in the process, which is a time cost for the applicant. This does not disqualify the role, but it changes how cautiously to proceed.
 
 ---
 
