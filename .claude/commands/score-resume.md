@@ -140,11 +140,11 @@ Format as:
 
 After displaying the score and action plan, automatically generate a professional PDF report.
 
-**Step 6a — Check dependency**
+**Step 6a: Check dependency**
 
 Run: `python3 -c "import reportlab" 2>/dev/null || pip3 install reportlab -q`
 
-**Step 6b — Write the score data to a temporary JSON file**
+**Step 6b: Write the score data to a temporary JSON file**
 
 Create a file at `reports/score_data_temp.json` with this exact structure:
 
@@ -182,7 +182,7 @@ Create a file at `reports/score_data_temp.json` with this exact structure:
 }
 ```
 
-**Step 6c — Run the report generator**
+**Step 6c: Run the report generator**
 
 ```bash
 python3 .claude/commands/generate_score_report.py reports/score_data_temp.json
@@ -190,7 +190,7 @@ python3 .claude/commands/generate_score_report.py reports/score_data_temp.json
 
 This saves the PDF to `reports/score_data_temp_report.pdf`.
 
-**Step 6d — Rename to a clean filename**
+**Step 6d: Rename to a clean filename**
 
 Build the output filename using these rules:
 - Use the candidate name from the resume, falling back to `Candidate` if not found
@@ -202,7 +202,7 @@ Example: Jane Doe applying for "Senior Data Engineer" → `reports/Jane_Doe_Seni
 
 Rename `reports/score_data_temp_report.pdf` to the final filename, then delete `reports/score_data_temp.json`.
 
-**Step 6e — Confirm to the user**
+**Step 6e: Confirm to the user**
 
 Tell the user:
 "Your score report has been saved to: `reports/<CandidateName>_<RoleTitle>_ScoreReport.pdf`

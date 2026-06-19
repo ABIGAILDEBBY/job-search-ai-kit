@@ -1,4 +1,4 @@
-# Amaka Jenkins — Base Resume
+# Amaka Jenkins: Base Resume
 
 ## Contact
 - Email: amaka.jenkins.dev@gmail.com
@@ -17,7 +17,7 @@ Backend engineer with 5 years of experience building distributed systems and API
 
 ## Work Experience
 
-### Senior Backend Engineer — Paysmart Africa
+### Senior Backend Engineer: Paysmart Africa
 *Lagos, Nigeria | Remote | Jan 2023 – Present*
 
 - Redesigned the core payments API from a monolithic Flask app to 6 Go microservices, reducing average response time from 820ms to 260ms (68% improvement) and supporting 3x traffic growth without additional infrastructure
@@ -26,7 +26,7 @@ Backend engineer with 5 years of experience building distributed systems and API
 - Implemented GitHub Actions CI/CD pipeline that cut deployment time from 45 minutes to 8 minutes and reduced failed deployments by 80%
 - Mentored 3 junior engineers through weekly code reviews and pair programming sessions, raising team PR approval rate from 61% to 89% in 6 months
 
-### Backend Engineer — BuildStack
+### Backend Engineer: BuildStack
 *Remote | Mar 2021 – Dec 2022*
 
 - Built and maintained REST APIs serving 180,000 monthly active users for a developer productivity SaaS platform using Python (FastAPI) and PostgreSQL
@@ -35,7 +35,7 @@ Backend engineer with 5 years of experience building distributed systems and API
 - Wrote Terraform modules for reproducible AWS environment provisioning across staging and production, reducing environment setup time from 3 days to 2 hours
 - Reduced test suite runtime from 18 minutes to 4 minutes by parallelizing pytest workers and introducing test data factories
 
-### Junior Backend Developer — Techbridge Solutions
+### Junior Backend Developer: Techbridge Solutions
 *Lagos, Nigeria | Jun 2020 – Feb 2021*
 
 - Developed internal REST APIs for HR and payroll management tools used by 12 enterprise clients across Nigeria and Ghana using Django and PostgreSQL
@@ -47,7 +47,7 @@ Backend engineer with 5 years of experience building distributed systems and API
 ## Education
 
 **BSc Computer Science**
-University of Lagos — Lagos, Nigeria | Graduated 2020
+University of Lagos: Lagos, Nigeria | Graduated 2020
 - Final year project: Distributed task queue system built in Python, benchmarked at 12,000 tasks/minute
 
 ---
@@ -66,8 +66,8 @@ University of Lagos — Lagos, Nigeria | Graduated 2020
 
 ## Certifications
 
-- AWS Certified Developer Associate — Amazon Web Services, 2022
-- Certified Kubernetes Application Developer (CKAD) — CNCF, 2023
+- AWS Certified Developer Associate: Amazon Web Services, 2022
+- Certified Kubernetes Application Developer (CKAD): CNCF, 2023
 
 ---
 

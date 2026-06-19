@@ -32,7 +32,7 @@ This project comes with a set of slash commands. Type `/` in Claude Code to see 
 
 | Command | What it does |
 |---|---|
-| `/find-roles` | Skill-first job discovery — find roles that match your actual skills, not just your target title |
+| `/find-roles` | Skill-first job discovery: find roles that match your actual skills, not just your target title |
 | `/vet-job` | Full audit of a job posting before you apply |
 | `/check-remote` | Verify if a "remote" job is actually remote |
 | `/research-company` | Deep-vet a company before you invest time |

@@ -23,7 +23,7 @@ To write you a resume that stands out, I need to understand you properly. Please
 2. How many years of total professional experience do you have? (include internships, freelance, contracts)
 3. Are you currently a student or recent graduate with limited work experience? (yes/no)
 4. List every role you have held with: company name, your title, start and end dates, and whether it was full-time/part-time/contract/internship
-5. For each role, tell me the 3-5 most impactful things you did — include numbers, tools, team sizes, outcomes wherever you can
+5. For each role, tell me the 3-5 most impactful things you did: include numbers, tools, team sizes, outcomes wherever you can
 6. What is your highest level of education? Include: degree, institution, graduation year, and field of study
 7. Did your coursework include anything directly relevant to the role you are applying for? List those courses if so
 8. List all your technical skills, tools, platforms, and programming languages
@@ -78,7 +78,7 @@ After reading their answers, present all 8 templates and highlight which ones ar
 
 1. From the Phase 1 answers, identify which row in the table above best matches the user's field and role type.
 2. Take the 3 template numbers listed for that row, in order.
-3. For each of the 3, write a one-line reason that references the user's specific role or field (e.g. "strong for data engineering roles — mirrors the format FAANG companies expect").
+3. For each of the 3, write a one-line reason that references the user's specific role or field (e.g. "strong for data engineering roles: mirrors the format FAANG companies expect").
 4. Replace `[RECOMMENDED 1/2/3]` with the actual template names. Do not proceed to Phase 4 until the user explicitly confirms a choice.
 
 ### Show the user this message (fill in from step above):
@@ -86,46 +86,46 @@ After reading their answers, present all 8 templates and highlight which ones ar
 ```text
 Based on your background, your top 3 recommended templates are:
 
-   [RECOMMENDED 1] — [one-line reason specific to their role/field]
-   [RECOMMENDED 2] — [one-line reason specific to their role/field]
-   [RECOMMENDED 3] — [one-line reason specific to their role/field]
+   [RECOMMENDED 1]: [one-line reason specific to their role/field]
+   [RECOMMENDED 2]: [one-line reason specific to their role/field]
+   [RECOMMENDED 3]: [one-line reason specific to their role/field]
 
 All 8 templates available:
 
-   1. FAANG Classic        — No color, inline skill categories (Languages / Frameworks / Cloud). 
+   1. FAANG Classic       : No color, inline skill categories (Languages / Frameworks / Cloud). 
                              Modelled on Google, Meta, and Amazon engineering resumes.
                              Best for: SWE, data, ML, DevOps.
 
-   2. Harvard Classic      — Garamond serif, ALL CAPS headings with full-width horizontal rule.
+   2. Harvard Classic     : Garamond serif, ALL CAPS headings with full-width horizontal rule.
                              Modelled on the Harvard Career Services template.
                              Best for: consulting, finance, law, academia, any field where the
                              Harvard format signals credibility.
 
-   3. Consulting Tight     — One page strict, four sections, most impressive bullet listed first.
+   3. Consulting Tight    : One page strict, four sections, most impressive bullet listed first.
                              Modelled on McKinsey, BCG, and Bain resume format. Includes an
                              Interests section (used in case interviews as a conversation starter).
                              Best for: consulting firm applications, finance, strategy roles.
 
-   4. Modern Tech          — Left-aligned, navy accent on name and headings, inline skills.
+   4. Modern Tech         : Left-aligned, navy accent on name and headings, inline skills.
                              Calibri sans-serif for screen-first reading. Tasteful single accent
                              color shown to increase interview rates vs. pure monochrome.
                              Best for: engineering, data, product, ops at tech companies.
 
-   5. Creative Accent      — Large name, teal accent rule under name and headings, portfolio
+   5. Creative Accent     : Large name, teal accent rule under name and headings, portfolio
                              URL is the most prominent contact element.
                              Best for: UX/UI design, product design, marketing, creative roles.
 
-   6. Conservative Pro     — Georgia serif, pure black and white, no design elements.
+   6. Conservative Pro    : Georgia serif, pure black and white, no design elements.
                              The format expected in finance, law, and compliance. Any color
                              signals unprofessionalism in these fields.
                              Best for: banking, IB, law, compliance, accounting, healthcare.
 
-   7. Entry Academic       — Centered name, dark shaded section headings, education-first layout.
+   7. Entry Academic      : Centered name, dark shaded section headings, education-first layout.
                              One page optimised. Projects section elevated above work experience
                              when limited job history.
                              Best for: students, recent graduates, under 2 years of experience.
 
-   8. Executive Strategic  — 24pt name, bold navy left-border headings, spacious two-page layout.
+   8. Executive Strategic : 24pt name, bold navy left-border headings, spacious two-page layout.
                              Opens with executive positioning statement and competencies band.
                              Best for: directors, VPs, C-suite, 10+ years of experience.
 
@@ -185,7 +185,7 @@ For non-technical roles: replace "Technical Skills" with the most accurate domai
 - Certification name | Issuing body | Year
 
 ### 8. Projects (if relevant)
-- Project name: 1-2 lines — what was built, outcome, tech stack or methodology used
+- Project name: 1-2 lines: what was built, outcome, tech stack or methodology used
 - For Template 7 (Entry Academic): Projects section should appear early, above or equal to Work Experience if work history is limited
 
 ### 9. Volunteer Experience (if relevant)
@@ -193,7 +193,7 @@ For non-technical roles: replace "Technical Skills" with the most accurate domai
 - 1-2 bullets using the same achievement format as Work Experience
 
 ### 10. Interests (Template 3 only)
-One line, 3-4 specific interests. This section is real and read in consulting interviews as a conversation starter. Not generic — write interests specific to the candidate.
+One line, 3-4 specific interests. This section is real and read in consulting interviews as a conversation starter. Not generic: write interests specific to the candidate.
 
 ---
 
@@ -237,7 +237,7 @@ def hex_to_rgb(hex_str):
 
 
 def add_hyperlink(paragraph, display_text, url, font_size=10, bold=False, color="1A7FC1"):
-    """Add a clickable hyperlink run to a paragraph. No w:rStyle — works in all Word versions."""
+    """Add a clickable hyperlink run to a paragraph. No w:rStyle: works in all Word versions."""
     part = paragraph.part
     r_id = part.relate_to(
         url,
@@ -337,7 +337,7 @@ def build_resume(doc, data, cfg):
     nr.font.name  = cfg["font_heading"]
     nr.font.color.rgb = hex_to_rgb(cfg["color_name"])
 
-    # Optional subtitle (target role) — Templates 5 and 8
+    # Optional subtitle (target role): Templates 5 and 8
     if cfg.get("show_target_role_subtitle") and data.get("target_role"):
         sub_para = doc.add_paragraph()
         sub_para.alignment = name_align
@@ -657,7 +657,7 @@ data = {
 
     "summary": "Full summary or objective text here.",
 
-    # Template 8 only — remove or set [] if not executive
+    # Template 8 only: remove or set [] if not executive
     "competencies": [
         "Led enterprise data platform migration serving 4M daily users",
         "P&L accountability across $8M engineering budget",
@@ -694,7 +694,7 @@ data = {
     "certifications": [],
     "projects":       [],
     "volunteer":      [],
-    "interests":      None,   # Template 3 only — e.g. "Distance running, West African jazz history, competitive chess"
+    "interests":      None,   # Template 3 only: e.g. "Distance running, West African jazz history, competitive chess"
 }
 
 template_number = TEMPLATE   # replace with the confirmed integer (1–8)
@@ -714,7 +714,7 @@ generate_resume(data, template_number, output_path)
 After generating the file, say this clearly:
 
 "Before you submit this to any role:
-- Read every line out loud — if it sounds like it was written by a robot, rewrite it in your own voice
+- Read every line out loud: if it sounds like it was written by a robot, rewrite it in your own voice
 - Verify every metric and achievement is accurate
 - Check that the file name is professional: FirstName-LastName-Role.docx
 - Remove any section that does not add value for this specific role
