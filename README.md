@@ -21,9 +21,9 @@
 
 ## What this is
 
-You clone this repo once, fill in your profile, and use it for your entire job search. It gives Claude the context it needs to help you vet jobs, tailor your resume, write cold emails, and run pre-apply checks — without re-explaining yourself every single time.
+You clone this repo once, fill in your profile, and use it for your entire job search. It gives Claude the context it needs to help you vet jobs, tailor your resume, write cold emails, and run pre-apply checks: without re-explaining yourself every single time.
 
-Built alongside **[The Job Search No One Taught You](https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7461467553941532672)** — a 24-article LinkedIn series by [Abigail Woolley](https://www.linkedin.com/in/abigail-woolley/).
+Built alongside **[The Job Search No One Taught You](https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7461467553941532672)**: a 24-article LinkedIn series by [Abigail Woolley](https://www.linkedin.com/in/abigail-woolley/).
 
 ---
 
@@ -31,7 +31,7 @@ Built alongside **[The Job Search No One Taught You](https://www.linkedin.com/bu
 
 > **Total time: under 2 minutes**
 
-### Option A — Claude Code (recommended)
+### Option A: Claude Code (recommended)
 
 ```bash
 # 1. Clone the repo
@@ -44,13 +44,13 @@ claude .
 
 Then:
 
-1. Fill in your profile in `CLAUDE.md` — name, target role, location, work authorisation, skills
+1. Fill in your profile in `CLAUDE.md`: name, target role, location, work authorisation, skills
 2. Paste your base resume into `resume/base-resume.md`
 3. Type `/` to see all commands
 
 That's it. Claude now knows who you are and what you're looking for.
 
-### Option B — claude.ai (no setup required)
+### Option B: claude.ai (no setup required)
 
 Open [`prompts/README.md`](prompts/README.md). Every command is available as a plain copy-paste prompt. Paste it into [claude.ai](https://claude.ai), answer the questions, and follow the output.
 
@@ -118,7 +118,7 @@ No account, no terminal, no config needed.
 
 ## Recommended workflow
 
-The commands work best in this order. Each one builds on the previous step — do not skip ahead.
+The commands work best in this order. Each one builds on the previous step: do not skip ahead.
 
 ```text
 For every job you consider:
@@ -147,7 +147,7 @@ For every job you consider:
 --- after you get the interview ---
 
 8. /prep-interview   ← generate targeted questions from your actual resume and this JD
-                        not generic prep — specific to what you claimed and what they need
+                        not generic prep: specific to what you claimed and what they need
 ```
 
 > The most common mistake is jumping straight to `/tailor-resume` without vetting the job first. A great resume sent to a ghost job or a visa-blocked role is wasted time.

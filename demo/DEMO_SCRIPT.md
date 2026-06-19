@@ -34,21 +34,21 @@ Open `CLAUDE.md` and briefly scroll through it.
 
 ---
 
-### Step 2: `/vet-job` — Audit the job posting (3–4 minutes)
+### Step 2: `/vet-job`: Audit the job posting (3–4 minutes)
 
 Type `/vet-job` in Claude Code. When asked, paste the full contents of `demo/sample-job.md`.
 
 **What to watch for (these make great screen moments):**
 - The ghost job check running (shows the kit is thinking critically, not just summarizing)
 - The skills alignment table comparing Amaka's profile to the JD requirements
-- The final recommendation (should be "Apply" for this JD — it is a strong match)
+- The final recommendation (should be "Apply" for this JD: it is a strong match)
 
 **What to say:**
 > "Instead of applying blind, I run a full audit first. It checks for ghost job signals, remote legitimacy, visa blockers, and whether my skills actually match before I spend an hour tailoring a resume."
 
 ---
 
-### Step 3: `/research-company` — Deep-vet Meridian (2–3 minutes)
+### Step 3: `/research-company`: Deep-vet Meridian (2–3 minutes)
 
 Type `/research-company`. When asked for the company, say: **Meridian (meridian.io)**.
 
@@ -61,23 +61,23 @@ Type `/research-company`. When asked for the company, say: **Meridian (meridian.
 
 ---
 
-### Step 4: `/tailor-resume` — Build the tailored resume (5–6 minutes, the WOW moment)
+### Step 4: `/tailor-resume`: Build the tailored resume (5–6 minutes, the WOW moment)
 
 Type `/tailor-resume`. Answer the discovery questions using Amaka Jenkins's profile from `demo/base-resume.md`.
 
 **Key moments to highlight:**
-- When the template selection menu appears (show all 8 options — pick Template 4 Modern Tech for this role)
-- When the DOCX file is generated and saved — open it immediately to show the formatted resume
+- When the template selection menu appears (show all 8 options: pick Template 4 Modern Tech for this role)
+- When the DOCX file is generated and saved: open it immediately to show the formatted resume
 
 **What to say:**
 > "This is not a generic resume. It reads the job description and rewrites every bullet point to match what this specific company is looking for, while keeping everything true to the candidate's real experience."
 
 After the DOCX opens:
-> "A fully formatted, ATS-ready resume — ready to submit."
+> "A fully formatted, ATS-ready resume: ready to submit."
 
 ---
 
-### Step 5: `/score-resume` — Check the ATS score (2 minutes)
+### Step 5: `/score-resume`: Check the ATS score (2 minutes)
 
 Type `/score-resume`. Paste the tailored resume content and the job description when prompted.
 
@@ -90,7 +90,7 @@ Type `/score-resume`. Paste the tailored resume content and the job description 
 
 ---
 
-### Step 6: `/prep-interview` — Get interview-ready (3–4 minutes)
+### Step 6: `/prep-interview`: Get interview-ready (3–4 minutes)
 
 Type `/prep-interview`. Paste the tailored resume and the job description. Select "senior" as the level.
 
@@ -100,7 +100,7 @@ Type `/prep-interview`. Paste the tailored resume and the job description. Selec
 - The readiness snapshot at the end
 
 **What to say:**
-> "I got the interview. Now I prepare — not with generic questions, but with questions tied to exactly what I claimed on my resume and what this company specifically needs."
+> "I got the interview. Now I prepare: not with generic questions, but with questions tied to exactly what I claimed on my resume and what this company specifically needs."
 
 ---
 
@@ -115,8 +115,8 @@ cp CLAUDE.md.backup CLAUDE.md
 
 ## Tips for the Recording
 
-- Let Claude type — do not rush it. The generation unfolding on screen is part of the effect
+- Let Claude type: do not rush it. The generation unfolding on screen is part of the effect
 - Pause briefly after each command output before speaking so viewers can read
-- The DOCX opening is your most visual moment — linger on it for 3–5 seconds
+- The DOCX opening is your most visual moment: linger on it for 3–5 seconds
 - Record at 1920x1080 minimum. 2560x1440 if your monitor supports it
 - Use a tool like CleanMyMac or hide your dock before recording

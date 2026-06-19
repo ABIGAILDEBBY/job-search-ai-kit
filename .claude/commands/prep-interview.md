@@ -41,7 +41,7 @@ Do not show this analysis to the user. Use it to generate targeted questions onl
 
 ## Phase 3: Generate interview questions
 
-Output sections in this order. Always output Sections 1, 2, and 4. Only output Section 3 if genuine gaps exist between the resume and the JD — if there are no gaps, skip Section 3 entirely and proceed directly to Section 4.
+Output sections in this order. Always output Sections 1, 2, and 4. Only output Section 3 if genuine gaps exist between the resume and the JD: if there are no gaps, skip Section 3 entirely and proceed directly to Section 4.
 
 ---
 
@@ -85,7 +85,7 @@ Format each question as:
 Questions likely to arise because of mismatches between the resume and the JD. These are the questions the user is least prepared for and most likely to be caught off guard by.
 
 Rules:
-- Only output this section if there are genuine gaps identified in Phase 2. If no gaps exist, omit this section entirely — do not include a placeholder or "No gaps" heading. Proceed directly to Section 4.
+- Only output this section if there are genuine gaps identified in Phase 2. If no gaps exist, omit this section entirely: do not include a placeholder or "No gaps" heading. Proceed directly to Section 4.
 - Do not soften the gap. Name it plainly and give the user a framework for addressing it honestly
 - 2 to 4 questions in this section
 

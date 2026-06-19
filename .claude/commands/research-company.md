@@ -123,7 +123,7 @@ Flag these as caution signals, not exits:
 Based on what was found across all five checks, generate 4 to 6 targeted questions the user should ask the recruiter or hiring manager. Every question must be specific to this company and this situation, not generic.
 
 Format as:
-- [Question] — why to ask it: [one-line reason based on what the research found]
+- [Question]: why to ask it: [one-line reason based on what the research found]
 
 ---
 

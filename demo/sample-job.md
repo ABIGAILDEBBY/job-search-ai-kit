@@ -1,11 +1,11 @@
-# Sample Job Description — For Demo and Testing
+# Sample Job Description: For Demo and Testing
 
 Use this job description when running any command in this kit during a demo or test session.
 Paste the content below the divider when a command asks for a job description.
 
 ---
 
-**Senior Backend Engineer — Platform Infrastructure**
+**Senior Backend Engineer: Platform Infrastructure**
 **Company:** Meridian (meridian.io)
 **Location:** Remote (UTC to UTC+3 preferred)
 **Type:** Full-time
@@ -20,7 +20,7 @@ Meridian is a Series B developer tools company building the infrastructure layer
 
 ## The Role
 
-We are looking for a Senior Backend Engineer to join our Platform Infrastructure team. You will own the design and reliability of the core API gateway, event streaming layer, and internal developer tooling that every Meridian product is built on. This is a high-ownership role — you will work directly with the CTO and make architectural decisions that affect every team.
+We are looking for a Senior Backend Engineer to join our Platform Infrastructure team. You will own the design and reliability of the core API gateway, event streaming layer, and internal developer tooling that every Meridian product is built on. This is a high-ownership role: you will work directly with the CTO and make architectural decisions that affect every team.
 
 ## What You Will Do
 
@@ -41,7 +41,7 @@ We are looking for a Senior Backend Engineer to join our Platform Infrastructure
 - Solid PostgreSQL skills: query optimization, indexing, and schema design
 - Experience deploying and operating services on AWS (ECS, RDS, Lambda, or equivalent)
 - Comfort with Docker and Kubernetes in production
-- Strong written communication — we are async-first and documentation matters here
+- Strong written communication: we are async-first and documentation matters here
 
 **Nice to Have:**
 - Experience with gRPC or GraphQL
@@ -57,10 +57,10 @@ We are looking for a Senior Backend Engineer to join our Platform Infrastructure
 - $2,000/year learning and development budget
 - Fully async work culture with no mandatory meeting hours
 - 35 days PTO per year
-- No visa sponsorship required — we hire globally as independent contractors or via Deel/Remote
+- No visa sponsorship required: we hire globally as independent contractors or via Deel/Remote
 
 ## How to Apply
 
-Apply via our careers page at meridian.io/careers. Include a link to something you have built — a GitHub repo, a technical blog post, or a system design writeup. We do not require a cover letter but we read everything that is submitted.
+Apply via our careers page at meridian.io/careers. Include a link to something you have built: a GitHub repo, a technical blog post, or a system design writeup. We do not require a cover letter but we read everything that is submitted.
 
 Hiring process: async take-home screen (2 hours) → technical interview (90 min) → CTO conversation (45 min) → offer.
