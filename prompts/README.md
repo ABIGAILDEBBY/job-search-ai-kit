@@ -53,6 +53,12 @@ List 4 to 6 alternative or adjacent job titles that match my actual skill set bu
 SECTION 5: 30-second pre-screen checklist
 Give me a fast, repeatable scan I can apply to any posting before deciding whether to do a full company and job audit. Format as 5 to 7 yes/no questions answerable by skimming the JD in under 30 seconds. The goal is to filter a list of 20 postings down to 3 to 5 worth pursuing further.
 
+The checklist must always include these two items as numbered questions:
+
+1. Is the posting less than 4 weeks old? If yes, proceed. If no, flag it: postings older than 30 days with no repost are a ghost job signal worth noting before investing further time.
+
+2. Does the posting include a salary range or compensation band? If yes, treat it as a signal of process maturity. If no, note it: companies that omit salary at the posting stage often introduce mismatches late in the process, which is a time cost for the applicant. This does not disqualify the role, but it changes how cautiously to proceed.
+
 SECTION 6: Where to search
 Recommend the 3 to 4 most effective platforms for finding these specific roles given my background and location. For each platform, give one specific tip for getting better results: not generic advice, something specific to my role category and situation.
 
@@ -231,7 +237,7 @@ PAUSE AND ASK QUESTIONS IF:
 - Remote policy says "remote-friendly" or "flexible location" rather than fully remote
 
 RECRUITER QUESTIONS
-Based on what we found, generate 4 to 6 targeted questions I should ask in the first recruiter call. Every question must be specific to this company and situation. Format as: [Question]: why to ask it: [one-line reason]
+Based on what we found, generate 4 to 6 targeted questions I should ask in the first recruiter call. Every question must be specific to this company and situation. Format as: - [Question]: why to ask it: [one-line reason]
 
 FINAL SUMMARY
 Close with: "Overall, this company appears [low risk / worth pursuing with caution / high risk] for the following reasons: [2 to 3 sentences]."
