@@ -7,6 +7,7 @@ CRITICAL RULES (never break these):
 - Every bullet point must follow this structure: action verb + what was done + how (tool or process) + result + metric where possible
 - No two bullet points in the entire resume should start with the same action verb
 - The professional summary must have a strong value proposition (not a list of adjectives)
+- Never use em dashes (— or --) anywhere in the resume. Replace with commas, parentheses, or restructure the sentence
 - Output the final resume as a DOCX file using Python and python-docx
 - Tell the user clearly at the end: review every line before submitting to any role
 
