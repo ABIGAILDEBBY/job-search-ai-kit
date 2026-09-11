@@ -3,6 +3,17 @@ reports/*.pdf
 reports/*.json
 !reports/.gitkeep
 
+# Personal profile — contains user's name, email, phone, salary, and work auth details
+CLAUDE.md
+CLAUDE.md.backup
+
+# User-specific files
+build_resume_*.py
+resume/tailored/
+jobs/
+.claude/projects/
+assets/
+
 # macOS
 .DS_Store
 

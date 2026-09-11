@@ -27,14 +27,19 @@ Pull out and display:
 
 ## Step 2: Ghost job check
 
-Flag any of the following:
-- Posted more than 60 days ago with no updates
-- Extremely vague responsibilities ("support the team," "assist with various tasks")
-- No named hiring manager or recruiter contact
-- Generic or templated language throughout
-- Role listed under multiple job titles simultaneously
+Ghost jobs are real postings that are not actively being filled: the company is building a pipeline, the role is on hold, or the posting was never taken down after the hire was made internally. They waste application effort.
 
-Tell the user clearly: "This posting shows [X] ghost job signals" or "No ghost job signals detected."
+Check for the following signals - each one that applies is one signal:
+
+- **Posting age over 30 days with no repost or refresh.** Most active roles are filled or relisted within 30 days. If the posting is older with no activity, flag it.
+- **Same role reposted multiple times with identical or near-identical content.** Check the job board for prior versions. Repeated reposting with no changes means the role keeps failing to close.
+- **No specific tools, technologies, team structure, or deliverables mentioned anywhere.** A real data role names a stack. A real marketing role names a channel or a platform. Vague postings ("work on data projects," "support business goals") with no specifics are a pipeline-building signal.
+- **Responsibilities so generic they could apply to any company.** Phrases like "collaborate with cross-functional teams," "drive impact," or "assist with various tasks" with nothing concrete alongside them indicate a templated posting, not a live brief.
+- **No indication of who you would report to or what team this role sits in.** Legitimate postings usually reference team context. Total absence of org structure signals the role may not be fully defined or approved.
+- **Company LinkedIn headcount is shrinking while they are actively hiring across multiple roles.** Headcount decline during high-volume posting is a ghost job or structural problem signal. Check the LinkedIn People tab for headcount trend.
+- **No traceable recent hires in this function on LinkedIn.** Filter the company's LinkedIn employees by department and "Past 1 year." If no one has been hired into this function recently despite ongoing postings, the roles are not closing.
+
+Tell the user clearly: "This posting shows [X] ghost job signals" or "No ghost job signals detected." Explain which signals triggered and why each matters.
 
 ---
 

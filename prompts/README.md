@@ -89,8 +89,15 @@ Pull out and display:
 - Application deadline and posting date (flag if older than 60 days)
 
 STEP 2: Ghost job check
-Flag any of: posted 60+ days ago with no updates, vague responsibilities ("assist with various tasks"), no named contact, generic templated language, same role listed under multiple titles.
-Tell me clearly: "This posting shows [X] ghost job signals" or "No ghost job signals detected."
+Ghost jobs are real postings that are not actively being filled. Check for all of the following signals:
+- Posting is more than 30 days old with no repost or refresh
+- Same role has been reposted multiple times with identical or near-identical content
+- No specific tools, technologies, or deliverables mentioned anywhere in the JD (a real role in any field names specifics)
+- Responsibilities so generic they could apply to any company ("drive impact," "collaborate with teams," "assist with various tasks" with nothing concrete)
+- No indication of who the role reports to or what team it sits in
+- Company LinkedIn headcount is shrinking while they are posting multiple open roles
+- No traceable recent hires in this function visible on LinkedIn in the past 6-12 months
+Tell me clearly: "This posting shows [X] ghost job signals" or "No ghost job signals detected." Explain each signal that triggered and why it matters.
 
 STEP 3: Remote legitimacy check
 If the role is listed as remote:
