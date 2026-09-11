@@ -15,15 +15,19 @@ Then work through each check below in order. Be direct. Do not soften concerns.
 
 ## Check 1: Is the role actually real?
 
-Ghost jobs stay live because no one removes them. Run this before anything else.
+Ghost jobs are real postings that are not actively being filled: the role may be on hold, the hire was made internally, or the company is passively building a pipeline with no intent to close soon. They waste application effort.
 
-Ask the user to:
-- Check the original posting date. Flag if it is older than 6 weeks with no repost or update.
-- Search the company on LinkedIn, filter employees by "Past 1 year" and look at who recently joined the target department. If no new hires are visible in a role posted repeatedly, name that as a signal.
-- Check whether the same role is posted under multiple slightly different titles.
-- Look for a pattern of roles at this company that never seem to close.
+Ask the user to check each signal below. Each one that applies counts as one ghost job signal:
 
-Tell the user clearly: "This role shows [X] ghost job signals" or "No ghost job signals detected."
+- **Posting age.** Is the posting older than 30 days with no repost, refresh, or update? Most active roles are filled or relisted within that window.
+- **Repeated reposting.** Has the same role been posted multiple times with identical or near-identical content? Repeated failure to close is the clearest ghost job indicator.
+- **No specifics in the JD.** Does the posting name any specific tools, technologies, team structure, or deliverables? A real role in any function names specifics. Vague postings that could apply to any company signal a templated or placeholder listing.
+- **No org context.** Is there any indication of who this role reports to or what team it sits in? Total absence of team structure often means the role is not yet approved or fully defined.
+- **LinkedIn headcount vs. hiring volume mismatch.** Go to the company LinkedIn page, click People, and check the headcount trend. A shrinking headcount while posting multiple open roles is a contradiction worth naming.
+- **No recent hires in this function.** Filter the company's LinkedIn employees by the target department and "Past 1 year." If no one has been hired into this function recently despite repeated postings, the roles are not closing.
+- **Pattern of roles that never close.** Is this company always hiring for the same or similar roles? Evergreen listings signal either very high churn or roles that are never intended to be filled.
+
+Tell the user clearly: "This role shows [X] ghost job signals" or "No ghost job signals detected." Name each signal that triggered and explain why it matters in one line.
 
 ---
 
