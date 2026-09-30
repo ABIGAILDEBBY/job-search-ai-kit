@@ -8,20 +8,20 @@ Fill in your profile once. Every command in this kit will use it.
 ## Your Profile
 
 ```
-NAME: Amaka Jenkins
-CURRENT ROLE: Backend Software Engineer
-CURRENT LOCATION: Lagos, Nigeria
-TARGET ROLE(S): Senior Backend Engineer, Staff Backend Engineer, Platform Engineer
-TARGET INDUSTRIES: Fintech, Developer Tools, SaaS, Cloud Infrastructure
-SALARY EXPECTATION: $90,000 - $130,000 USD
-WORK AUTHORIZATION: Nigerian-based, seeking fully remote only, open to contract or full-time, no sponsorship needed for remote roles
+NAME: Abigail Woolley
+CURRENT ROLE: Microsoft Fabric Data Engineer (Technical Lead)
+CURRENT LOCATION: Accra, Ghana
+TARGET ROLE(S): Data Engineer, Senior Data Engineer, Analytics Engineer, Data Officer, ML Engineer
+TARGET INDUSTRIES: International Development, Tech, Finance, SaaS, Cloud
+SALARY EXPECTATION: $80,000 - $130,000 USD
+WORK AUTHORIZATION: Ghana-based, seeking fully remote or international relocation with sponsorship; no US work authorization currently
 PREFERRED TIME ZONES TO OVERLAP WITH: UTC, UTC+1, EST (flexible)
-YEARS OF EXPERIENCE: 5
-KEY SKILLS: Python, Go, PostgreSQL, Redis, Kafka, Docker, Kubernetes, AWS (EC2, RDS, Lambda, S3), REST APIs, gRPC, microservices, CI/CD, GitHub Actions, Terraform
-EDUCATION: BSc Computer Science, University of Lagos, 2020
-RESUME FILE: demo/base-resume.md
-LINKEDIN URL: https://www.linkedin.com/in/amaka-jenkins/
-PORTFOLIO/GITHUB URL: https://github.com/amaka-jenkins
+YEARS OF EXPERIENCE: 6+
+KEY SKILLS: Microsoft Fabric, PySpark, Apache Spark, Delta Lake, Medallion Architecture, ETL/ELT, Python, SQL, T-SQL, Azure, Azure Data Factory, Azure Synapse, Power BI, DAX, Dataflows Gen2, OneLake, Data Pipelines, Data Governance, Data Lineage, ML Pipeline Development, Scikit-learn, PyTorch, TensorFlow, REST APIs, Agile
+EDUCATION: MS Information Technology (Data Science & Applied ML), Carnegie Mellon University, 2020; BS Computer Science, University of Ghana, 2017
+RESUME FILE: resume/tailored/Abigail-Woolley-Microsoft-Fabric-Engineer.docx
+LINKEDIN URL: https://www.linkedin.com/in/abigail-woolley/
+PORTFOLIO/GITHUB URL: https://github.com/ABIGAILDEBBY
 ```
 
 ---
@@ -32,8 +32,9 @@ This project comes with a set of slash commands. Type `/` in Claude Code to see 
 
 | Command | What it does |
 |---|---|
+| `/verify-opportunity` | Quick check: confirm a posting is still live, deadline not past, position not filled — run this before anything else |
 | `/find-roles` | Skill-first job discovery: find roles that match your actual skills, not just your target title |
-| `/vet-job` | Full audit of a job posting before you apply |
+| `/vet-job` | Full audit of a job posting before you apply (includes opportunity viability check) |
 | `/check-remote` | Verify if a "remote" job is actually remote |
 | `/research-company` | Deep-vet a company before you invest time |
 | `/tailor-resume` | Match your resume to a specific job description |
@@ -78,3 +79,4 @@ job-search-ai-kit/
 - When tailoring a resume, never fabricate experience. Only reframe and reorder real experience from `demo/base-resume.md`.
 - When vetting a job, always ask clarifying questions if key information is missing from the posting.
 - Flag any mismatch between the user's profile above and the job requirements clearly before proceeding.
+

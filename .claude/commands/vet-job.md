@@ -12,6 +12,25 @@ Once you have the job description, run through every section below in order. Be 
 
 ---
 
+## Step 0: Opportunity viability check (run this first — stop here if it fails)
+
+Before investing any time in the full audit, confirm the opportunity is still live.
+
+**URL check**: If the user provided a URL, attempt to fetch it. If it returns a 404, redirects to a generic jobs page, or shows "page not found" — stop immediately. Tell the user: "The posting URL is no longer live. This role may have been filled or the listing removed. Do not apply until you find an active link." Do not proceed with the audit until a valid live URL is confirmed.
+
+**Deadline check**: Extract any application deadline from the posting. Compare it to today's date.
+- If the deadline has already passed: stop and tell the user clearly: "The application deadline was [date] — that is [X days] ago. This cycle is closed." For recurring fellowships or annual academic programmes, note when the next cycle is expected and what to monitor.
+- If no deadline is listed: note this. Flag if the posting date (if visible) is older than 45 days.
+- If the deadline is within 7 days: flag as URGENT before proceeding.
+
+**For academic fellowships and grant-funded positions**: run two additional checks:
+- Search `"[programme name]" "paused" OR "suspended" OR "no positions" 2025 OR 2026` to check if the programme is currently inactive.
+- Search `"[institution]" "[project name]" "postdoc" "hired" OR "joined" OR "appointed"` to check if the position has already been filled.
+
+If either check fails, stop and explain clearly. Only proceed to Step 1 if the opportunity is confirmed live and the deadline is in the future.
+
+---
+
 ## Step 1: Extract the basics
 
 Pull out and display:
