@@ -41,7 +41,9 @@ Also search for: "[programme name]" + "filled" OR "hired" OR "current fellow"
 Tell me: whether the programme is accepting applications now, whether it has been paused, and whether the position appears already filled.
 
 CHECK 5: Position filled check
-Search for the institution and project name together with terms like "joined," "hired," "appointed," or "welcome." Check the institution's people or team page if available. Tell me if evidence suggests the position has already been filled.
+For corporate roles: search for the employer name and role title together with terms like "joined," "hired," "appointed," or "welcome." Check the company's LinkedIn or press releases for a recent hire announcement.
+For academic positions and fellowships: search for the institution and project name together with those same terms. Check the institution's people or team page if available.
+Tell me if evidence suggests the position has already been filled.
 
 VERDICT
 Give one of these:

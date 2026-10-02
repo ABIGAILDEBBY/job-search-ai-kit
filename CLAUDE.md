@@ -76,7 +76,7 @@ job-search-ai-kit/
 
 - Always read this file before running any command.
 - When the user pastes a job description, extract: company name, role title, location, remote status, required skills, and work authorization requirements.
-- When tailoring a resume, never fabricate experience. Only reframe and reorder real experience from `demo/base-resume.md`.
+- When tailoring a resume, never fabricate experience. Only reframe and reorder real experience from `resume/base-resume.md`.
 - When vetting a job, always ask clarifying questions if key information is missing from the posting.
 - Flag any mismatch between the user's profile above and the job requirements clearly before proceeding.
 

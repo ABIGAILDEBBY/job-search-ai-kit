@@ -27,7 +27,7 @@ Before investing any time in the full audit, confirm the opportunity is still li
 - Search `"[programme name]" "paused" OR "suspended" OR "no positions" 2025 OR 2026` to check if the programme is currently inactive.
 - Search `"[institution]" "[project name]" "postdoc" "hired" OR "joined" OR "appointed"` to check if the position has already been filled.
 
-If either check fails, stop and explain clearly. Only proceed to Step 1 if the opportunity is confirmed live and the deadline is in the future.
+If either check fails, stop and explain clearly. Only proceed to Step 1 if the opportunity is confirmed live. A posting with no listed deadline may still proceed — state that the deadline is unknown and advise the user to check the official posting page. Only stop if the deadline is confirmed as already passed.
 
 ---
 
