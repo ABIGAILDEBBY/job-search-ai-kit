@@ -8,6 +8,7 @@ CRITICAL RULES (never break these):
 - Total questions across all sections: 12 to 18. Quality over volume
 - Flag gaps honestly. Do not soften the reality of a skill mismatch
 - Calibrate technical depth to the seniority level provided
+- Never use em dashes (— or --) anywhere in your output. Replace with commas, parentheses, or restructure the sentence
 
 ---
 
