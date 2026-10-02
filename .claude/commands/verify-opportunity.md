@@ -17,11 +17,12 @@ Then run every check below in order.
 
 ## Check 1: URL validity
 
-Attempt to fetch the URL.
+If the user provided a URL, attempt to fetch it.
 
 - If the URL returns a 404 or "page not found": **STOP. The posting has been taken down. This is a hard blocker.** Tell the user: "The posting URL is no longer live. The position has likely been filled or the listing has been removed. Do not apply until you find an active link." Then offer to help search for an updated link.
 - If the URL redirects to a generic jobs listing page (e.g. the company's main careers page rather than the specific role): flag it as a possible removal.
 - If the URL loads with the full posting intact: PASS. Proceed.
+- If no URL was provided (user described where they found it instead): note that the URL could not be verified. Ask the user to share a direct link if they have one. Proceed to the remaining checks using any details provided, and flag in the summary that URL validity was not confirmed.
 
 ---
 
@@ -33,7 +34,7 @@ Compare today's date against the stated application deadline.
   - For corporate roles: the opportunity is gone. Offer to find similar open roles.
   - For academic fellowships and grant programmes: flag whether this is a recurring programme. If it runs annually or has multiple intake cycles, note when the next deadline is likely and what to watch for.
 - If the deadline is within 7 days: flag as URGENT. Tell the user exactly how many days remain.
-- If no deadline is listed: note this explicitly. Advise the user to check the posting date and treat any posting older than 45 days as potentially filled.
+- If no deadline is listed: note this explicitly. Map the summary verdict to **VERIFY FIRST** — do not give APPLY NOW without a confirmed deadline. Advise the user to check the official posting page for a deadline before applying.
 
 ---
 
@@ -42,8 +43,8 @@ Compare today's date against the stated application deadline.
 Estimate how long the posting has been live based on any available signals: posting date on the job board, "date posted" field, URL structure, or what the user tells you.
 
 - Under 30 days: LOW RISK. Proceed.
-- 30 to 60 days: MODERATE RISK. Flag it and note that most roles are filled or stalled within 60 days of posting.
-- Over 60 days with no repost: HIGH RISK. Tell the user: "This posting has been live for over 60 days. Most active roles are filled within this window. Verify the role is still open before investing application time."
+- 30 to 60 days: MODERATE RISK. Flag it as a risk signal — postings in this range are more likely to be stalled or already in late-stage interviews.
+- Over 60 days with no repost: HIGH RISK. Tell the user: "This posting has been live for over 60 days. That is a risk signal — verify the role is still actively accepting applications before investing time."
 
 ---
 
@@ -51,7 +52,7 @@ Estimate how long the posting has been live based on any available signals: post
 
 Run this check only if the user said the opportunity is an academic fellowship, research programme, or grant-funded position.
 
-Search for: `"[programme name]" + "2025" OR "2026" + "paused" OR "suspended" OR "no positions" OR "not accepting"`
+Search for: `"[programme name]" + "[current year]" OR "[next year]" + "paused" OR "suspended" OR "no positions" OR "not accepting"` (use the actual current and next calendar years, not literal placeholders)
 
 Also search for: `"[programme name]" + "filled" OR "hired" OR "current fellow"`
 
@@ -61,13 +62,17 @@ Tell the user:
 - Whether the position appears to already have been filled (e.g. a person is listed as current fellow or postdoc)
 - When the next intake cycle opens, if identifiable
 
-If the programme is paused or between cycles: do not advise the user to apply now. Instead, give them a specific date or period to watch for the next announcement.
+If the programme is paused or between cycles: do not advise the user to apply now. If the next cycle opening date is identifiable from your search results, share it. If it is not, tell the user: "No next cycle date is available. Monitor the official programme page for announcements."
 
 ---
 
 ## Check 5: Position filled check
 
-Search for: `"[institution name]" + "[project or lab name]" + "postdoc" OR "researcher" + "joined" OR "hired" OR "appointed" OR "welcome"`
+Tailor the search based on the type of role:
+
+**For corporate roles:** Search for `"[employer name]" + "[role title]" + "joined" OR "hired" OR "appointed" OR "welcome"`. Check the company's LinkedIn page or press releases for any recent hire announcement.
+
+**For academic positions and fellowships:** Search for `"[institution name]" + "[project or lab name]" + "postdoc" OR "researcher" + "joined" OR "hired" OR "appointed" OR "welcome"`.
 
 Check the institution's team or people page if a URL is available.
 
