@@ -6,7 +6,60 @@ They will ask you questions first, then help you. That is intentional: the more 
 
 ---
 
-## Prompt 0: Find Roles That Match Your Skills
+## Prompt 0a: Verify an Opportunity Is Still Live
+
+Matches `/verify-opportunity`
+
+Run this before any full audit. Catches dead postings, expired deadlines, filled positions, and paused fellowship programmes in under 2 minutes.
+
+```text
+I found a job or fellowship opportunity and I want to confirm it is still active before I invest time applying.
+
+Please ask me all of these in one message:
+1. The URL of the posting (or where I found it)
+2. The application deadline listed on the posting (paste the exact text, or say "not listed")
+3. How long ago I found this posting
+4. Whether this is a corporate role, academic position, or fellowship/grant programme
+
+Then run every check below.
+
+CHECK 1: URL validity
+Attempt to fetch the URL. If it returns a 404 or redirects to a generic jobs page, stop immediately and tell me the posting is no longer live. Do not proceed with any further checks until a valid live URL is confirmed.
+
+CHECK 2: Deadline check
+Compare today's date to the stated deadline.
+- If the deadline has already passed: stop. Tell me clearly: "The application deadline was [date] — that is [X days] ago. This cycle is closed." For recurring academic fellowships, tell me when the next cycle is expected.
+- If the deadline is within 7 days: flag as URGENT before continuing.
+- If no deadline is listed: note it and flag if the posting appears to be older than 45 days.
+
+CHECK 3: Posting age
+Estimate how long the posting has been live. Under 30 days: low risk. 30-60 days: moderate risk. Over 60 days with no repost: high risk — flag it.
+
+CHECK 4: Fellowship and programme cycle check (for academic roles only)
+Search for: "[programme name]" + "paused" OR "suspended" OR "no positions" + 2025 OR 2026
+Also search for: "[programme name]" + "filled" OR "hired" OR "current fellow"
+Tell me: whether the programme is accepting applications now, whether it has been paused, and whether the position appears already filled.
+
+CHECK 5: Position filled check
+For corporate roles: search for the employer name and role title together with terms like "joined," "hired," "appointed," or "welcome." Check the company's LinkedIn or press releases for a recent hire announcement.
+For academic positions and fellowships: search for the institution and project name together with those same terms. Check the institution's people or team page if available.
+Tell me if evidence suggests the position has already been filled.
+
+VERDICT
+Give one of these:
+- APPLY NOW: posting is live, deadline is upcoming, no red flags
+- APPLY SOON: deadline is within 7 days — act today
+- VERIFY FIRST: [specific thing to confirm]
+- CYCLE CLOSED: this intake period is over — watch for next cycle on [date/period]
+- POSITION FILLED: evidence suggests the role is already hired
+- DEAD LINK: the posting URL is no longer live
+
+Then ask: "Would you like me to search for similar active opportunities or run a full job audit?"
+```
+
+---
+
+## Prompt 0b: Find Roles That Match Your Skills
 
 Matches `/find-roles`
 
@@ -80,6 +133,13 @@ Start by asking me:
 3. Whether I have already researched this company at all
 
 Once you have the job description, run through all of these steps in order. Be direct. Flag problems clearly. Do not soften concerns.
+
+STEP 0: Opportunity viability check — run this first, stop if it fails
+Before anything else, confirm the opportunity is still live.
+- URL check: if a URL was provided, fetch it. If it returns 404 or redirects to a generic jobs page, stop: "The posting URL is no longer live. Do not apply until you find an active link."
+- Deadline check: extract the application deadline and compare it to today's date. If it has already passed, stop: "The deadline was [date] — [X days] ago. This cycle is closed." For academic fellowships and annual programmes, note when the next cycle is expected. If the deadline is within 7 days, flag as URGENT.
+- For academic fellowships: search "[programme name] paused OR suspended OR no positions 2025 OR 2026" to check for programme suspension. Search "[institution] [project name] postdoc hired OR joined OR appointed" to check if the position is already filled. Stop if either check returns a red flag.
+Only proceed to Step 1 if the opportunity is confirmed live and the deadline is in the future.
 
 STEP 1: Extract the basics
 Pull out and display:
