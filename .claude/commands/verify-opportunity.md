@@ -43,7 +43,7 @@ Compare today's date against the stated application deadline.
 Estimate how long the posting has been live based on any available signals: posting date on the job board, "date posted" field, URL structure, or what the user tells you.
 
 - Under 30 days: LOW RISK. Proceed.
-- 30 to 60 days: MODERATE RISK. Flag it as a risk signal — postings in this range are more likely to be stalled or already in late-stage interviews.
+- 30 to 60 days: MODERATE RISK. Flag it as a risk signal — advise the user to verify the role is still actively accepting applications before investing time.
 - Over 60 days with no repost: HIGH RISK. Tell the user: "This posting has been live for over 60 days. That is a risk signal — verify the role is still actively accepting applications before investing time."
 
 ---

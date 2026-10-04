@@ -24,7 +24,7 @@ Please ask me all of these in one message:
 Then run every check below.
 
 CHECK 1: URL validity
-Attempt to fetch the URL. If it returns a 404 or redirects to a generic jobs page, stop immediately and tell me the posting is no longer live. Do not proceed with any further checks until a valid live URL is confirmed.
+If I provided a URL, attempt to fetch it. If it returns a 404 or redirects to a generic jobs page, stop immediately and tell me the posting is no longer live. Do not proceed with any further checks until a valid live URL is confirmed. If I did not provide a URL (described where I found it instead): ask me for a direct link or enough details to identify the specific listing. Do not run Check 1 until the posting can be located. Flag in the summary that URL validity was not confirmed if a link cannot be found.
 
 CHECK 2: Deadline check
 Compare today's date to the stated deadline.
@@ -138,7 +138,7 @@ STEP 0: Opportunity viability check — run this first, stop if it fails
 Before anything else, confirm the opportunity is still live.
 - URL check: if a URL was provided, fetch it. If it returns 404 or redirects to a generic jobs page, stop: "The posting URL is no longer live. Do not apply until you find an active link." If no URL was provided (job description pasted only): ask for an active source URL or current confirmation from the hiring team. If liveness cannot be confirmed, stop: "I cannot confirm this opportunity is still live. Provide an active source link before continuing."
 - Deadline check: extract the application deadline and compare it to today's date. If it has already passed, stop: "The deadline was [date] — [X days] ago. This cycle is closed." For academic fellowships and annual programmes, note when the next cycle is expected. If the deadline is within 7 days, flag as URGENT. If no deadline is listed, treat it as unknown and flag it — do not use this as a reason to stop.
-- For academic fellowships: search "[programme name] paused OR suspended OR no positions [current year] OR [next year]" to check for programme suspension. Search "[institution] [project name] postdoc hired OR joined OR appointed" to check if the position is already filled. Stop if either check returns a red flag.
+- For academic fellowships and grant-funded positions: search "[programme name] paused OR suspended OR no positions [current year] OR [next year]" to check for programme suspension. Search "[institution] [project name] postdoc hired OR joined OR appointed" to check if the position is already filled. Stop if either check returns a red flag.
 Only proceed to Step 1 if the opportunity is confirmed live. A missing deadline does not block Step 1 — flag it as unknown and continue.
 
 STEP 1: Extract the basics
