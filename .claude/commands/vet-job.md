@@ -20,6 +20,7 @@ Before investing any time in the full audit, confirm the opportunity is still li
 
 If the user did not provide a URL (pasted the job description only): ask for an active source URL or current confirmation from the hiring team. Check the source if provided. If liveness cannot be confirmed, stop and tell the user: "I cannot confirm this opportunity is still live. Provide an active source link before continuing."
 
+
 **Deadline check**: Extract any application deadline from the posting. Compare it to today's date.
 - If the deadline has already passed: stop and tell the user clearly: "The application deadline was [date] — that is [X days] ago. This cycle is closed." For recurring fellowships or annual academic programmes, note when the next cycle is expected and what to monitor.
 - If no deadline is listed: note this. Flag if the posting date (if visible) is older than 45 days.
